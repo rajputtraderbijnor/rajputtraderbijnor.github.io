@@ -119,3 +119,16 @@ html:not(.js) .reveal-right, html:not(.js) .reveal-scale, html:not(.js) .reveal-
 
 /* Fix: let the floating WhatsApp button actually hide near the footer */
 .floating-actions.floating-actions--hidden { animation: none; opacity: 0; transform: translateY(30px) scale(0.92); pointer-events: none; }
+
+/* Products page: pack size line on cards */
+.product-card__pack { font-size: 0.72rem; color: var(--secondary); margin: 0.1rem 0 0.4rem; }
+.products-result-count { margin-bottom: 1rem; color: var(--secondary); font-size: 0.9rem; }
+.products-empty .btn { margin-top: 0.5rem; }
+.product-filters__clear { background: none; border: 0; padding: 0.6rem; font: inherit; font-weight: 600; color: var(--secondary); text-decoration: underline; cursor: pointer; width: 100%; text-align: center; }
+
+/* Fix: search box must shrink on small phones instead of widening the page */
+.products-search__form { min-width: 0; max-width: 100%; }
+.products-search__input { min-width: 0; width: 100%; text-overflow: ellipsis; }
+/* Safety net: nothing may make the page wider than the screen */
+html, body { max-width: 100%; }
+body { overflow-x: clip; }

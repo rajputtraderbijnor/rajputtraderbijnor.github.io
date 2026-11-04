@@ -142,7 +142,7 @@
   /*
    * data-cta="call | whatsapp | directions | map | email"  -> sets href
    * data-wa-text="..."  (optional, with data-cta="whatsapp") custom message
-   * data-site-text="phone | address | hours | gst | email" -> sets text
+   * data-site-text="phone | address | hours | gst | email | minorder" -> sets text
    * data-prefix="..." (optional) text put before the value
    */
   function bind(site, root) {
@@ -181,6 +181,7 @@
       else if (key === 'hours') text = site.businessHoursText || '';
       else if (key === 'gst') text = site.gstNumber || '';
       else if (key === 'email') text = site.email || '';
+      else if (key === 'minorder') text = site.minOrderValue ? '\u20B9' + site.minOrderValue : '';
       if (text) {
         node.textContent = (node.getAttribute('data-prefix') || '') + text;
         node.hidden = false;
