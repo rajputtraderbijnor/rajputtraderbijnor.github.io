@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "name": "Bread",
+    "slug": "bread",
+    "description": null,
+    "image": null,
+    "sortOrder": 0
+  },
+  {
+    "id": 2,
+    "name": "Pav",
+    "slug": "pav",
+    "description": null,
+    "image": null,
+    "sortOrder": 0
+  },
+  {
+    "id": 3,
+    "name": "Burger Bun",
+    "slug": "burger-bun",
+    "description": null,
+    "image": null,
+    "sortOrder": 0
+  },
+  {
+    "id": 4,
+    "name": "Kulcha",
+    "slug": "kulcha",
+    "description": null,
+    "image": null,
+    "sortOrder": 0
+  },
+  {
+    "id": 5,
+    "name": "Brown Bread",
+    "slug": "brown-bread",
+    "description": null,
+    "image": null,
+    "sortOrder": 0
+  },
+  {
+    "id": 6,
+    "name": "Fruit Bun",
+    "slug": "fruit-bun",
+    "description": null,
+    "image": null,
+    "sortOrder": 0
+  },
+  {
+    "id": 7,
+    "name": "Sandwich Bread",
+    "slug": "sandwich-bread",
+    "description": null,
+    "image": null,
+    "sortOrder": 0
+  },
+  {
+    "id": 8,
+    "name": "Toast",
+    "slug": "toast",
+    "description": null,
+    "image": null,
+    "sortOrder": 0
+  },
+  {
+    "id": 9,
+    "name": "Rusks",
+    "slug": "rusks",
+    "description": null,
+    "image": null,
+    "sortOrder": 0
+  },
+  {
+    "id": 10,
+    "name": "Cakes",
+    "slug": "cakes",
+    "description": null,
+    "image": null,
+    "sortOrder": 0
+  },
+  {
+    "id": 11,
+    "name": "Cookies",
+    "slug": "cookies",
+    "description": null,
+    "image": null,
+    "sortOrder": 0
+  }
+]

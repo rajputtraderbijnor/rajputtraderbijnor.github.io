@@ -1,0 +1,43 @@
+/* Base: reset, body, typography */
+*{ box-sizing: border-box; margin: 0; padding: 0; }
+body{
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--cream);
+  color: var(--primary);
+  line-height: 1.6;
+}
+a{ text-decoration: none; color: inherit; }
+img{ max-width: 100%; display: block; }
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="date"],
+input[type="time"],
+input[type="number"],
+textarea,
+select{
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border-radius: 8px;
+  border: 1.5px solid rgba(63, 37, 5, 0.15);
+  background-color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.88rem;
+  color: var(--primary);
+  transition: border-color 0.2s ease;
+}
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible{
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(217, 138, 11, 0.15);
+}
+textarea{ resize: vertical; min-height: 100px; }
+button:focus-visible,
+a:focus-visible{ outline: 2px solid var(--gold); outline-offset: 2px; }

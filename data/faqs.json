@@ -1,0 +1,149 @@
+[
+  {
+    "category": "products",
+    "question": "What products does Rajput Traders supply?",
+    "answer": "We are a wholesale bakery distributor supplying breads, pav and other bakery products. The Products page shows everything currently available, and you can browse by category and brand.",
+    "sortOrder": 10,
+    "isPopular": true
+  },
+  {
+    "category": "delivery",
+    "question": "Which areas do you deliver to?",
+    "answer": "We deliver to the areas shown in the Our Delivery Network section on the Home page. If your area is not listed, please contact us and we will tell you whether we can deliver there.",
+    "sortOrder": 10,
+    "isPopular": true
+  },
+  {
+    "category": "bulk",
+    "question": "Who can order wholesale?",
+    "answer": "We supply retailers, dairy shops, tea stalls, restaurants, hotels, caterers and wholesalers, as well as schools, offices and events.",
+    "sortOrder": 10,
+    "isPopular": false
+  },
+  {
+    "category": "payments",
+    "question": "Do I pay on the website?",
+    "answer": "No. When you place an order on the website you send us a request. Our team reviews it, confirms wholesale pricing, and contacts you about payment.",
+    "sortOrder": 10,
+    "isPopular": false
+  },
+  {
+    "category": "events",
+    "question": "Do you supply for weddings, parties and events?",
+    "answer": "Yes. We supply bakery products for weddings, birthday parties, schools and colleges, corporate offices and other events.",
+    "sortOrder": 10,
+    "isPopular": false
+  },
+  {
+    "category": "products",
+    "question": "Are your products fresh?",
+    "answer": "Yes. Freshness is our priority. We have been supplying bakery products to retailers and businesses since 2000.",
+    "sortOrder": 20,
+    "isPopular": false
+  },
+  {
+    "category": "delivery",
+    "question": "How will I know my delivery date?",
+    "answer": "Our team confirms the delivery date with you when your order is confirmed. If you have a preferred or event date, enter it at checkout.",
+    "sortOrder": 20,
+    "isPopular": false
+  },
+  {
+    "category": "bulk",
+    "question": "Is there a minimum order value?",
+    "answer": "Yes. A minimum order value applies to wholesale and bulk orders. The current amount is shown on the Bulk Orders page.",
+    "sortOrder": 20,
+    "isPopular": true
+  },
+  {
+    "category": "payments",
+    "question": "Is advance payment required?",
+    "answer": "Bulk orders follow an advance payment step before processing begins. The current terms are shown on the Bulk Orders page and confirmed with you when your order is approved.",
+    "sortOrder": 20,
+    "isPopular": true
+  },
+  {
+    "category": "events",
+    "question": "How do I place an event order?",
+    "answer": "Go to the Bulk Orders page, press Place Bulk Order and confirm, choose your products, and enter your event date at checkout. Our team will then contact you.",
+    "sortOrder": 20,
+    "isPopular": false
+  },
+  {
+    "category": "products",
+    "question": "Do the products show prices?",
+    "answer": "Many products show a listed price. Some show \"Contact for pricing\". Your final wholesale price is confirmed by our team when we review your request.",
+    "sortOrder": 30,
+    "isPopular": false
+  },
+  {
+    "category": "delivery",
+    "question": "Can I get my order delivered to an address of my choice?",
+    "answer": "Yes. Enter your full delivery address at checkout. Our team will confirm that we can deliver to that address.",
+    "sortOrder": 30,
+    "isPopular": false
+  },
+  {
+    "category": "bulk",
+    "question": "Can I order large quantities such as 200 pieces or more?",
+    "answer": "Yes. In the cart or at checkout you can type any quantity directly instead of using the plus and minus buttons.",
+    "sortOrder": 30,
+    "isPopular": false
+  },
+  {
+    "category": "payments",
+    "question": "Which payment methods do you accept?",
+    "answer": "Our team will share the available payment options with you when your order is confirmed.",
+    "sortOrder": 30,
+    "isPopular": false
+  },
+  {
+    "category": "events",
+    "question": "How early should I place an event order?",
+    "answer": "As early as possible. Large orders need planning, so send your request and event date well in advance. If your date is close, contact us directly.",
+    "sortOrder": 30,
+    "isPopular": false
+  },
+  {
+    "category": "products",
+    "question": "How do I find a specific product or brand?",
+    "answer": "Use the search option on the website, or open the Products or Brands page to browse by category and brand.",
+    "sortOrder": 40,
+    "isPopular": false
+  },
+  {
+    "category": "delivery",
+    "question": "How can I contact you about a delivery?",
+    "answer": "Call us or message us on WhatsApp using the details on the Contact page. We are happy to help with any delivery question.",
+    "sortOrder": 40,
+    "isPopular": false
+  },
+  {
+    "category": "bulk",
+    "question": "How does a bulk order work?",
+    "answer": "Open the Bulk Orders page, press Place Bulk Order and confirm the order terms, then add your products to the cart and go to checkout. Our team reviews your request, confirms wholesale pricing with you, and arranges payment and delivery.",
+    "sortOrder": 40,
+    "isPopular": true
+  },
+  {
+    "category": "payments",
+    "question": "Can I see the final price before I pay?",
+    "answer": "Yes. Pricing is confirmed with you before your order is processed, and advance payment is requested only after that confirmation.",
+    "sortOrder": 40,
+    "isPopular": false
+  },
+  {
+    "category": "events",
+    "question": "Can I change my event order after sending it?",
+    "answer": "Contact us as soon as possible by phone or WhatsApp. Changes are easiest before the order is confirmed.",
+    "sortOrder": 40,
+    "isPopular": false
+  },
+  {
+    "category": "bulk",
+    "question": "How can I become a regular retailer partner?",
+    "answer": "Use the Become a Retailer option on the Contact page or message us on WhatsApp. Our team will get in touch to discuss regular supply.",
+    "sortOrder": 50,
+    "isPopular": false
+  }
+]

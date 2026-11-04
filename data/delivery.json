@@ -1,0 +1,4 @@
+{
+  "_help": "Towns and areas you deliver to. Add one name per line inside the square brackets, in quotes, with a comma after every name except the last. While the list is empty the website shows a general sentence instead of area chips.",
+  "areas": []
+}

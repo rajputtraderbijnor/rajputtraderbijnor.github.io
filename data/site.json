@@ -1,0 +1,14 @@
+{
+  "_help": "Business details used across the website. Change a value here and every page updates. Keep the quotes and commas exactly as they are.",
+  "phone": "9927637594",
+  "whatsapp": "919927637594",
+  "email": "rajputtraderbijnor@gmail.com",
+  "address": "Rajput Traders, Ring Road, near Saint Mary's School, Bijnor, Uttar Pradesh, India",
+  "businessHoursText": "Open daily, 6:00 AM – 10:00 PM",
+  "gstNumber": "09ISZPS5782Q1ZT",
+  "mapUrl": "https://maps.app.goo.gl/nxFcbxE5aT9cv1zm8?g_st=ac",
+  "lat": 29.388162,
+  "lng": 78.148803,
+  "minOrderValue": "500",
+  "advancePaymentNote": "25% advance payment required, or confirm on WhatsApp."
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Test",
+    "slug": "test",
+    "categoryId": 1,
+    "brandId": 5,
+    "description": null,
+    "packagingInfo": null,
+    "coverImage": "product-1791997385821-522616541.webp",
+    "isSeasonal": false,
+    "sortOrder": 0
+  },
+  {
+    "id": 2,
+    "name": "Test 2",
+    "slug": "test-2",
+    "categoryId": 1,
+    "brandId": 5,
+    "description": null,
+    "packagingInfo": null,
+    "coverImage": "product-1793246664344-610712740.webp",
+    "isSeasonal": false,
+    "sortOrder": 0
+  },
+  {
+    "id": 3,
+    "name": "Test-3",
+    "slug": "test-3",
+    "categoryId": 2,
+    "brandId": 5,
+    "description": null,
+    "packagingInfo": null,
+    "coverImage": "product-1793357669798-514211018.webp",
+    "isSeasonal": false,
+    "sortOrder": 0
+  },
+  {
+    "id": 4,
+    "name": "Bread",
+    "slug": "bread",
+    "categoryId": 1,
+    "brandId": 5,
+    "description": null,
+    "packagingInfo": null,
+    "coverImage": null,
+    "isSeasonal": false,
+    "sortOrder": 0
+  }
+]

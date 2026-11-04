@@ -1,0 +1,130 @@
+[
+  {
+    "id": 1,
+    "page": "home",
+    "key": "hero.title",
+    "value": "Freshness Delivered, Trust Earned.",
+    "label": "Hero Heading",
+    "updatedAt": "2026-10-10T18:56:09.514Z"
+  },
+  {
+    "id": 2,
+    "page": "home",
+    "key": "hero.subtitle",
+    "value": "Supplying fresh bakery products to retailers, restaurants, hotels and event suppliers since 2000.",
+    "label": "Hero Subtitle",
+    "updatedAt": "2026-10-10T18:56:09.514Z"
+  },
+  {
+    "id": 3,
+    "page": "home",
+    "key": "about-preview.title",
+    "value": "About Rajput Traders",
+    "label": "About Preview Heading",
+    "updatedAt": "2026-10-10T18:56:09.514Z"
+  },
+  {
+    "id": 4,
+    "page": "home",
+    "key": "about-preview.text",
+    "value": "We are a trusted distributor of premium bakery products, committed to quality, timely delivery, and customer satisfaction — proudly serving Bijnor and surrounding regions since 2000.",
+    "label": "About Preview Text",
+    "updatedAt": "2026-10-10T18:56:09.514Z"
+  },
+  {
+    "id": 5,
+    "page": "home",
+    "key": "event-teaser.title",
+    "value": "Planning a Wedding or Party?",
+    "label": "Event Teaser Heading",
+    "updatedAt": "2026-10-10T18:56:09.514Z"
+  },
+  {
+    "id": 6,
+    "page": "home",
+    "key": "event-teaser.text",
+    "value": "We supply fresh Pav, Burger Buns, Kulcha and more for all your events.",
+    "label": "Event Teaser Text",
+    "updatedAt": "2026-10-10T18:56:09.514Z"
+  },
+  {
+    "id": 7,
+    "page": "home",
+    "key": "delivery-network.text",
+    "value": "We proudly deliver fresh bakery products across the following areas, with our network continuously expanding.",
+    "label": "Delivery Network Text",
+    "updatedAt": "2026-10-10T18:56:09.514Z"
+  },
+  {
+    "id": 8,
+    "page": "home",
+    "key": "final-cta.title",
+    "value": "Need Bakery Products for Your Business?",
+    "label": "Final CTA Heading",
+    "updatedAt": "2026-10-10T18:56:09.514Z"
+  },
+  {
+    "id": 9,
+    "page": "home",
+    "key": "final-cta.subtitle",
+    "value": "We're here to serve you with quality and timely delivery.",
+    "label": "Final CTA Subtitle",
+    "updatedAt": "2026-10-10T18:56:09.514Z"
+  },
+  {
+    "id": 10,
+    "page": "about",
+    "key": "hero.title",
+    "value": "About Rajput Traders",
+    "label": "Hero Heading",
+    "updatedAt": "2026-10-10T18:56:13.038Z"
+  },
+  {
+    "id": 11,
+    "page": "about",
+    "key": "hero.subtitle",
+    "value": "Your Trusted Bakery Distribution Partner — Serving Retailers Across Bijnor & Nearby Areas",
+    "label": "Hero Subtitle",
+    "updatedAt": "2026-10-10T18:56:13.038Z"
+  },
+  {
+    "id": 12,
+    "page": "about",
+    "key": "story.text",
+    "value": "Rajput Traders is a wholesale distributor of bread and bakery products, proudly serving retailers, restaurants, hotels, and event suppliers across Bijnor and surrounding areas since 2000. We supply fresh bakery products from trusted brands, built on reliable service and long-term retailer relationships.",
+    "label": "Our Story Text",
+    "updatedAt": "2026-10-10T18:56:13.038Z"
+  },
+  {
+    "id": 13,
+    "page": "about",
+    "key": "partner-cta.title",
+    "value": "Want to Sell Our Products?",
+    "label": "Partner CTA Heading",
+    "updatedAt": "2026-10-10T18:56:13.038Z"
+  },
+  {
+    "id": 14,
+    "page": "about",
+    "key": "partner-cta.text",
+    "value": "Become a Retail Partner Today.",
+    "label": "Partner CTA Text",
+    "updatedAt": "2026-10-10T18:56:13.038Z"
+  },
+  {
+    "id": 15,
+    "page": "about",
+    "key": "final-cta.title",
+    "value": "Need Fresh Bakery Products?",
+    "label": "Final CTA Heading",
+    "updatedAt": "2026-10-10T18:56:13.038Z"
+  },
+  {
+    "id": 16,
+    "page": "about",
+    "key": "final-cta.subtitle",
+    "value": "Contact Rajput Traders today.",
+    "label": "Final CTA Subtitle",
+    "updatedAt": "2026-10-10T18:56:13.038Z"
+  }
+]
