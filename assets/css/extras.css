@@ -233,3 +233,30 @@ a.delivery-chip:hover { border-color: var(--gold); color: var(--gold); }
 .partner-cta__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
 .btn--outline-light { background: transparent; color: var(--cream); border: 2px solid var(--light-gold); }
 .btn--outline-light:hover { background: var(--gold); color: var(--primary); border-color: var(--gold); }
+
+/* Contact page */
+.contact-email-line { text-align: center; margin-top: 1.25rem; font-size: 0.85rem; color: var(--secondary); }
+.contact-email-line a { text-decoration: underline; }
+.contact-form__submit { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; }
+.contact-form__alt { display: block; width: 100%; margin-top: 0.75rem; background: none; border: 0; padding: 0.5rem; font: inherit; font-weight: 600; color: var(--secondary); text-decoration: underline; cursor: pointer; }
+.contact-form__note { text-align: center; font-size: 0.78rem; color: var(--secondary); margin-top: 0.75rem; }
+.contact-info-card--static { cursor: default; }
+
+/* Contact page: quick-contact cards (safe copy, same look as the original design) */
+.quick-contact-section { padding: 0 1.25rem var(--section-padding-y); }
+.quick-contact-section .section-title { text-align: center; }
+.quick-contact-grid { min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; }
+.quick-contact-card {
+  min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.6rem;
+  background-color: var(--white); border: none; border-radius: 12px; padding: 1.35rem 0.75rem;
+  box-shadow: 0 2px 10px rgba(63, 37, 5, 0.08); font-family: 'Poppins', sans-serif; cursor: pointer;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+.quick-contact-card:hover { transform: translateY(-4px); box-shadow: 0 10px 22px rgba(63, 37, 5, 0.15); }
+.quick-contact-card i { font-size: 1.6rem; color: var(--gold); }
+.quick-contact-card span { font-size: 0.8rem; font-weight: 700; color: var(--primary); text-align: center; line-height: 1.3; }
+@media (max-width: 860px) { .quick-contact-grid { grid-template-columns: repeat(3, 1fr); gap: 0.75rem; } .quick-contact-card { padding: 1rem 0.5rem; } }
+@media (max-width: 520px) { .quick-contact-grid { grid-template-columns: repeat(2, 1fr); } .quick-contact-card span { font-size: 0.74rem; } }
+
+/* Business badges: visible white pills (they were cream on cream) */
+.business-inquiry-badge { background-color: var(--white); border: 1px solid rgba(63, 37, 5, 0.12); box-shadow: 0 2px 6px rgba(63, 37, 5, 0.06); }
