@@ -2977,7 +2977,7 @@ body:has(.not-found-page){ padding-bottom: 0; }
     justify-content: center;
     cursor: pointer;
   }
-  .navbar__dropdown-item--primary{ display: none; }
+  .navbar__dropdown-item--primary{ display: none; } /* phone menu already lists the main pages above */
   .navbar__more{ width: 100%; }
   .navbar__more-toggle{ display: none; }
   .navbar__dropdown{
@@ -3079,11 +3079,11 @@ body:has(.not-found-page){ padding-bottom: 0; }
   body{ padding-bottom: 60px; }
 }
 @media (max-width: 480px){
-  .why-us__grid{ grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
-  .why-us__card{ padding: 0.75rem 0.4rem; }
-  .why-us__icon{ font-size: 1.3rem; margin-bottom: 0.4rem; }
-  .why-us__card h3{ font-size: 0.68rem; line-height: 1.25; margin-bottom: 0; }
-  .why-us__card p{ display: none; }
+  .why-us__grid{ grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+  .why-us__card{ padding: 1rem 0.75rem; }
+  .why-us__icon{ font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .why-us__card h3{ font-size: 0.9rem; line-height: 1.3; margin-bottom: 0.25rem; overflow-wrap: normal; word-break: normal; }
+  .why-us__card p{ display: block; font-size: 0.78rem; line-height: 1.4; }
   .product-grid{ grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
   .products-category-group__header{ flex-wrap: wrap; }
   .products-category-group__view-all{ margin-left: 0; }

@@ -169,7 +169,6 @@
     grid.innerHTML = visible.map(card).join('');
     if (site) RT.bind(site, grid);
     RT.initReveal(grid);
-    grid.querySelectorAll('.reveal-card').forEach(function (el) { el.classList.add('is-visible'); });
 
     var n = list.length;
     $('result-count').textContent = all.length === 0

@@ -382,6 +382,14 @@
   initHeaderShadow();
   initFloatingHide();
 
+  // Scroll animations (progress bar, count-up, parallax, pinned steps)
+  (function () {
+    var m = document.createElement('script');
+    m.src = '/assets/js/motion.js';
+    m.defer = true;
+    document.body.appendChild(m);
+  })();
+
   siteReady.then(function (site) { bind(site, document); });
   bind(FALLBACK, document);
   initReveal();

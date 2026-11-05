@@ -38,11 +38,7 @@ html:not(.js) .reveal-right, html:not(.js) .reveal-scale, html:not(.js) .reveal-
   .reveal-up, .reveal-left, .reveal-right, .reveal-scale { opacity: 1 !important; transform: none !important; }
 }
 
-/* On wide screens the main links are already in the top bar, so the "More"
-   menu only lists the extra pages. */
-@media (min-width: 861px) {
-  .navbar__dropdown-item--primary { display: none; }
-}
+/* The three-dot menu lists every page (main pages, extra pages and policies). */
 
 /* ===== Decorative bakery shapes (one per section, each tilted differently) =====
    Faint copies of the hand-drawn bakery shapes in the section backgrounds.
@@ -260,3 +256,19 @@ a.delivery-chip:hover { border-color: var(--gold); color: var(--gold); }
 
 /* Business badges: visible white pills (they were cream on cream) */
 .business-inquiry-badge { background-color: var(--white); border: 1px solid rgba(63, 37, 5, 0.12); box-shadow: 0 2px 6px rgba(63, 37, 5, 0.06); }
+
+
+/* ===== Scroll motion (assets/js/motion.js) =====
+   Only runs for visitors who have not asked their phone to reduce motion. */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes rtRise { from { opacity: 0; transform: translateY(18px) scale(.97); } to { opacity: 1; transform: none; } }
+  /* Cards in a grid appear one after another once their group scrolls into view */
+  .reveal-scale.is-visible > *{ animation: rtRise .55s cubic-bezier(.2,.7,.2,1) backwards; }
+  .reveal-scale.is-visible > *:nth-child(2){ animation-delay: .07s; }
+  .reveal-scale.is-visible > *:nth-child(3){ animation-delay: .14s; }
+  .reveal-scale.is-visible > *:nth-child(4){ animation-delay: .21s; }
+  .reveal-scale.is-visible > *:nth-child(5){ animation-delay: .28s; }
+  .reveal-scale.is-visible > *:nth-child(6){ animation-delay: .35s; }
+  .reveal-scale.is-visible > *:nth-child(n+7){ animation-delay: .42s; }
+  .hero__image img{ will-change: translate; }
+}
