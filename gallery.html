@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Gallery | Rajput Traders</title>
+  <meta name="description" content="Photos of Rajput Traders: bakery products, daily deliveries, warehouse, events and bulk orders in Bijnor, Uttar Pradesh.">
+  <link rel="canonical" href="https://rajputtraderbijnor.github.io/gallery.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Rajput Traders">
+  <meta property="og:title" content="Photo Gallery | Rajput Traders">
+  <meta property="og:description" content="Products, deliveries, warehouse and events.">
+  <meta property="og:url" content="https://rajputtraderbijnor.github.io/gallery.html">
+  <meta property="og:image" content="https://rajputtraderbijnor.github.io/assets/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#3F2505">
+  <link rel="icon" type="image/png" href="/assets/images/favicon-64.png">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/extras.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://rajputtraderbijnor.github.io/" },
+      { "@type": "ListItem", "position": 2, "name": "Gallery", "item": "https://rajputtraderbijnor.github.io/gallery.html" }
+    ]
+  }
+  </script>
+</head>
+<body data-page="gallery">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Header is built by assets/js/site.js -->
+  <header id="site-header" class="site-header">
+    <noscript>
+      <nav class="noscript-nav" aria-label="Primary">
+        <a href="/">Home</a> <a href="/products.html">Products</a> <a href="/brands.html">Brands</a>
+        <a href="/about.html">About Us</a> <a href="/contact.html">Contact</a>
+      </nav>
+    </noscript>
+  </header>
+
+  <main id="main" class="site-main gallery-page">
+
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol class="breadcrumb__list">
+            <li class="breadcrumb__item"><a href="/">Home</a></li>
+            <li class="breadcrumb__separator" aria-hidden="true">/</li>
+            <li class="breadcrumb__item"><span aria-current="page">Gallery</span></li>
+          </ol>
+        </nav>
+        <h1 class="page-hero__title">Gallery</h1>
+        <p class="page-hero__subtitle">Our products, deliveries, warehouse and business operations.</p>
+      </div>
+    </section>
+
+    <section class="gallery-intro">
+      <div class="container">
+        <p class="gallery-intro__text">Take a look inside Rajput Traders: real photos of our fresh products, daily deliveries, warehouse, bulk and event supplies, and the distribution network that keeps shops stocked across Bijnor and nearby areas.</p>
+      </div>
+    </section>
+
+    <section class="featured-gallery" id="gallery-featured-section" hidden>
+      <div class="container">
+        <h2 class="section-title reveal-up">Featured Photos</h2>
+        <div class="gallery-grid" id="gallery-featured" data-lightbox-group="featured"></div>
+      </div>
+    </section>
+
+    <section class="gallery-main-section">
+      <div class="container">
+        <h2 class="section-title reveal-up">Browse Our Gallery</h2>
+        <div class="chip-bar" id="gallery-chips-bar" hidden><div class="chip-bar__scroll" id="gallery-chips"></div></div>
+        <div class="gallery-grid" id="gallery-grid" data-lightbox-group="main"></div>
+        <p class="section-empty-text" id="gallery-empty" hidden>Photos are coming soon. Meanwhile, message us on WhatsApp and we will gladly share pictures of our products.</p>
+        <noscript><p class="section-empty-text">Please turn on JavaScript to see the photos.</p></noscript>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container final-cta__inner reveal-up">
+        <h2 class="final-cta__title">Like What You See?</h2>
+        <p class="final-cta__subtitle">Get fresh bakery products supplied by Rajput Traders.</p>
+        <div class="final-cta__actions">
+          <a href="/products.html" class="btn btn--gold">View Products</a>
+          <a href="#" class="btn btn--whatsapp" data-cta="whatsapp">WhatsApp Us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full-size photo viewer (opened by gallery.js) -->
+    <div class="lightbox" id="galleryLightbox" aria-hidden="true">
+      <div class="lightbox__backdrop" data-lightbox-close></div>
+      <div class="lightbox__panel" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle" tabindex="-1">
+        <button type="button" class="lightbox__close" data-lightbox-close aria-label="Close image viewer"><i class="ri-close-line" aria-hidden="true"></i></button>
+        <button type="button" class="lightbox__prev" data-lightbox-prev aria-label="Previous image"><i class="ri-arrow-left-s-line" aria-hidden="true"></i></button>
+        <div class="lightbox__content">
+          <img src="" alt="" class="lightbox__image" data-lightbox-image>
+          <p class="lightbox__title" id="lightboxTitle" data-lightbox-title></p>
+        </div>
+        <button type="button" class="lightbox__next" data-lightbox-next aria-label="Next image"><i class="ri-arrow-right-s-line" aria-hidden="true"></i></button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer is built by assets/js/site.js -->
+  <footer id="site-footer" class="site-footer">
+    <noscript>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Rajput Traders</h3>
+          <p>Wholesale bakery distributor in Bijnor, Uttar Pradesh, since 2000.</p>
+          <a href="tel:+919927637594">+91 99276 37594</a>
+        </div>
+      </div>
+    </noscript>
+  </footer>
+
+  <script src="/assets/js/site.js" defer></script>
+  <script src="/assets/js/gallery.js" defer></script>
+</body>
+</html>

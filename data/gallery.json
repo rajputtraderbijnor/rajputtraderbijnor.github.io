@@ -1,0 +1,5 @@
+{
+  "_help": "Add one block per photo inside the square brackets of items. Put the picture file in assets/images/gallery/ and write only its file name in image. section can be: products, delivery, warehouse, events or shop. Add isFeatured: true to show a photo at the top. Keep commas between blocks, none after the last.",
+  "_example": { "title": "Morning bread delivery", "image": "morning-delivery.webp", "section": "delivery", "isFeatured": true, "sortOrder": 1 },
+  "items": []
+}

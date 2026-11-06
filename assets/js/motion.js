@@ -10,7 +10,7 @@
  */
 (function () {
   'use strict';
-  var GROUPS = '.reveal-scale, .about-credentials__list, .about-timeline, .faq-preview__list, .faq-accordion, .popular-faqs__list, .product-grid, .about-mission-vision__grid, .not-found-nav-grid, .about-process__flow, .brand-grid, .brands-grid';
+  var GROUPS = '.reveal-scale, .about-credentials__list, .about-timeline, .faq-preview__list, .faq-accordion, .popular-faqs__list, .product-grid, .gallery-grid, .about-mission-vision__grid, .not-found-nav-grid, .about-process__flow, .brand-grid, .brands-grid';
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   /* 3. Every card / list item fades up by itself as it scrolls into view (like Home).
