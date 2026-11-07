@@ -13,6 +13,7 @@ if not name:
 brand = c.pick('Which brand?', brands)
 cat = c.pick('Which category?', cats)
 pack = input('Pack size (example: 400 g) or press Enter to skip: ').strip()
+mrp = input('MRP printed on the pack in rupees, numbers only (example: 10) or press Enter to skip: ').strip()
 desc = input('Short description (optional, press Enter to skip): ').strip()
 
 slug = re.sub(r'[^a-z0-9]+', '-', (brands[brand] + ' ' + name).lower()).strip('-')
@@ -24,7 +25,7 @@ pid = max([p.get('id', 0) for p in prods] + [0]) + 1
 prod = {'id': pid, 'name': name, 'slug': slug, 'categoryId': cat, 'brandId': brand,
         'packagingInfo': pack or None, 'description': desc or None,
         'coverImage': photos[0] if photos else None, 'images': photos,
-        'price': None, 'isSeasonal': False, 'sortOrder': pid, 'status': 'published'}
+        'price': (int(mrp) if mrp.isdigit() else None), 'isSeasonal': False, 'sortOrder': pid, 'status': 'published'}
 prods.append(prod)
 c.save_products(prods)
 print('\nAdded: %s (%s, %s) with %d photo(s). Total products: %d' % (name, brands[brand], cats[cat], len(photos), len(prods)))

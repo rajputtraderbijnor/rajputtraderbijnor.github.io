@@ -7,7 +7,7 @@
     "brandId": 101,
     "packagingInfo": "100g",
     "coverImage": "loaf-india-gattoo-bread.webp",
-    "price": null,
+    "price": 10,
     "isSeasonal": false,
     "sortOrder": 1,
     "status": "published",
