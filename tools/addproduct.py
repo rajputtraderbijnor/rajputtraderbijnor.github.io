@@ -14,7 +14,7 @@ brand = c.pick('Which brand?', brands)
 cat = c.pick('Which category?', cats)
 pack = input('Pack size (example: 400 g) or press Enter to skip: ').strip()
 mrp = input('MRP printed on the pack in rupees, numbers only (example: 10) or press Enter to skip: ').strip()
-desc = input('Short description (optional, press Enter to skip): ').strip()
+desc = c.ask_line('Short description (optional, press Enter to skip): ')
 
 slug = re.sub(r'[^a-z0-9]+', '-', (brands[brand] + ' ' + name).lower()).strip('-')
 if any(p.get('slug') == slug for p in prods):

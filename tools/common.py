@@ -1,7 +1,7 @@
 """Shared helpers for the product tools (addproduct.py, addphoto.py).
 Run them from Termux like:  python3 ~/rajputtraderbijnor.github.io/tools/addproduct.py
 """
-import json, os, re, shutil
+import json, os, re, shutil, select, sys, time
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DL = os.path.expanduser('~/storage/shared/Download')
@@ -244,3 +244,20 @@ def rebuild_sitemap(prods):
                      for p in prods if p.get('slug') and p.get('status') in (None, 'published'))
     text = text.replace('</urlset>', blocks.lstrip('\n') + '\n</urlset>' if blocks else '</urlset>')
     open(path, 'w', encoding='utf-8').write(text)
+
+
+def ask_line(prompt):
+    """Ask one question. If the person pastes several lines (a long description with
+    Enter inside it), the extra lines are joined into the same answer instead of
+    spilling into the next questions."""
+    parts = [input(prompt).strip()]
+    time.sleep(0.5)
+    while True:
+        ready, _, _ = select.select([sys.stdin], [], [], 0.4)
+        if not ready:
+            break
+        line = sys.stdin.readline()
+        if not line:
+            break
+        parts.append(line.strip())
+    return ' '.join(p for p in parts if p)

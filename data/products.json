@@ -15,6 +15,66 @@
       "loaf-india-gattoo-bread.webp",
       "loaf-india-gattoo-bread-2.webp",
       "loaf-india-gattoo-bread-3.webp"
-    ]
+    ],
+    "description": "Loaf India Gattoo Bread – Large Slices (100g). Soft, fresh sliced bread, perfect for sandwiches, breakfast toast and everyday snacks."
+  },
+  {
+    "id": 2,
+    "name": "Bada Bread 220g",
+    "slug": "loaf-india-bada-bread-220g",
+    "categoryId": 1,
+    "brandId": 101,
+    "packagingInfo": "220 g",
+    "description": "Loaf India Bada Bread – Large Slices (220g). Fresh, soft and delicious sliced bread, perfect for sandwiches, breakfast toast and everyday snacks.",
+    "coverImage": "loaf-india-bada-bread-220g-3.webp",
+    "images": [
+      "loaf-india-bada-bread-220g-3.webp",
+      "loaf-india-bada-bread-220g-4.webp",
+      "loaf-india-bada-bread-220g-5.webp"
+    ],
+    "price": 20,
+    "isSeasonal": false,
+    "sortOrder": 2,
+    "status": "published"
+  },
+  {
+    "id": 3,
+    "name": "Sweet Fruit Bun",
+    "slug": "loaf-india-sweet-fruit-bun",
+    "categoryId": 6,
+    "brandId": 101,
+    "packagingInfo": "70 g",
+    "description": "Loaf India Sweet Fruit Bun (2 pieces, 70g). Soft, fluffy and deliciously sweet fruit buns, perfect for breakfast, tea-time snacks or a quick treat anytime.",
+    "coverImage": "loaf-india-sweet-fruit-bun.webp",
+    "images": [
+      "loaf-india-sweet-fruit-bun.webp",
+      "loaf-india-sweet-fruit-bun-2.webp",
+      "loaf-india-sweet-fruit-bun-3.webp",
+      "loaf-india-sweet-fruit-bun-4.webp"
+    ],
+    "price": 10,
+    "isSeasonal": false,
+    "sortOrder": 3,
+    "status": "published"
+  },
+  {
+    "id": 4,
+    "name": "Bada Bread 450g",
+    "slug": "loaf-india-bada-bread-450g",
+    "categoryId": 1,
+    "brandId": 101,
+    "packagingInfo": "450 g",
+    "description": "Loaf India Bada Bread (450g). Soft, delicious sliced bread, perfect for tasty sandwiches, morning breakfasts, evening snacks and quick bites. Softness and taste in every slice!",
+    "coverImage": "loaf-india-bada-bread-450g.webp",
+    "images": [
+      "loaf-india-bada-bread-450g.webp",
+      "loaf-india-bada-bread-450g-2.webp",
+      "loaf-india-bada-bread-450g-3.webp",
+      "loaf-india-bada-bread-450g-4.webp"
+    ],
+    "price": 50,
+    "isSeasonal": false,
+    "sortOrder": 4,
+    "status": "published"
   }
 ]

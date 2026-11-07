@@ -68,9 +68,16 @@
             '<img src="' + imgUrl(f) + '" alt="" loading="lazy" decoding="async"></button>';
         }).join('') + '</div>'
       : '';
+    // Arrows + counter on the big photo tell visitors the photos can be slid
+    var chev = function (d) { return '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="' + d + '" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'; };
+    var controls = list.length > 1
+      ? '<button type="button" class="product-gallery__arrow product-gallery__arrow--prev" data-gallery-prev aria-label="Previous photo">' + chev('M15 5l-7 7 7 7') + '</button>' +
+        '<button type="button" class="product-gallery__arrow product-gallery__arrow--next" data-gallery-next aria-label="Next photo">' + chev('M9 5l7 7-7 7') + '</button>' +
+        '<span class="product-gallery__counter" data-gallery-counter>1 / ' + list.length + '</span>'
+      : '';
     return '<div class="product-detail__gallery"><div class="product-gallery" data-product-gallery>' +
       '<div class="product-gallery__main"><img src="' + first + '" alt="' + esc(p.name) + '" class="product-gallery__main-image" ' +
-      'data-gallery-main-image decoding="async" onerror="this.onerror=null;this.src=\'' + PLACEHOLDER + '\'"></div>' + thumbs + '</div></div>';
+      'data-gallery-main-image decoding="async" onerror="this.onerror=null;this.src=\'' + PLACEHOLDER + '\'">' + controls + '</div>' + thumbs + '</div></div>';
   }
 
   function renderInfo(p, brand, cat) {
@@ -139,13 +146,67 @@
   }
 
   function bindPage(p) {
-    document.querySelector('[data-product-gallery]').addEventListener('click', function (e) {
-      var t = e.target.closest('[data-gallery-thumb]');
-      if (!t) return;
-      document.querySelector('[data-gallery-main-image]').src = t.getAttribute('data-image-url');
-      document.querySelectorAll('[data-gallery-thumb]').forEach(function (b) {
-        b.classList.toggle('product-gallery__thumb--active', b === t);
+    var gallery = document.querySelector('[data-product-gallery]');
+    var mainImg = document.querySelector('[data-gallery-main-image]');
+    var thumbEls = Array.prototype.slice.call(document.querySelectorAll('[data-gallery-thumb]'));
+    var current = 0;
+
+    var counter = document.querySelector('[data-gallery-counter]');
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Show photo number i, sliding in from the side it comes from (stops at first / last)
+    function show(i) {
+      if (!thumbEls.length) return;
+      var next = Math.max(0, Math.min(thumbEls.length - 1, i));
+      if (next === current) return;
+      var dir = next > current ? 1 : -1;
+      current = next;
+      thumbEls.forEach(function (b, k) {
+        b.classList.toggle('product-gallery__thumb--active', k === current);
       });
+      if (counter) counter.textContent = (current + 1) + ' / ' + thumbEls.length;
+      var url = thumbEls[current].getAttribute('data-image-url');
+      var pre = new Image();                         // load first, so the slide never shows a blank
+      pre.onload = pre.onerror = function () {
+        if (thumbEls[current].getAttribute('data-image-url') !== url) return;   // user already moved on
+        mainImg.src = url;
+        if (!reduce && mainImg.animate) {
+          mainImg.animate(
+            [{ transform: 'translateX(' + (dir * 32) + '%)', opacity: 0.15 }, { transform: 'translateX(0)', opacity: 1 }],
+            { duration: 320, easing: 'cubic-bezier(.22,.61,.36,1)' }
+          );
+        }
+      };
+      pre.src = url;
+    }
+    var prevBtn = document.querySelector('[data-gallery-prev]');
+    var nextBtn = document.querySelector('[data-gallery-next]');
+    if (prevBtn) prevBtn.addEventListener('click', function () { show(current - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { show(current + 1); });
+
+    gallery.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-gallery-thumb]');
+      if (t) show(thumbEls.indexOf(t));
+    });
+
+    // Swipe left / right on the big photo to change photo
+    var main = gallery.querySelector('.product-gallery__main');
+    var sx = 0, sy = 0, tracking = false;
+    main.addEventListener('touchstart', function (e) {
+      if (e.touches.length !== 1) { tracking = false; return; }
+      sx = e.touches[0].clientX; sy = e.touches[0].clientY; tracking = true;
+    }, { passive: true });
+    main.addEventListener('touchend', function (e) {
+      if (!tracking) return;
+      tracking = false;
+      var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+      if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy) * 1.2) return;   // too short or mostly vertical
+      show(dx < 0 ? current + 1 : current - 1);
+    }, { passive: true });
+    // Keyboard (desktop): left / right arrows
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') show(current + 1);
+      else if (e.key === 'ArrowLeft') show(current - 1);
     });
     $('pd-share').addEventListener('click', function () {
       var url = location.href, note = $('pd-share-note');

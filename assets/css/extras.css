@@ -290,3 +290,35 @@ a.delivery-chip:hover { border-color: var(--gold); color: var(--gold); }
 .product-gallery__main-image{ object-fit: contain; background: #fff; }
 .product-gallery__thumb{ background: #fff; }
 .product-gallery__thumb img{ object-fit: contain; }
+
+/* Product page thumbnails: 4 per row, always in one line, equal size */
+.product-gallery__thumbs{ display: grid; grid-template-columns: repeat(4, 1fr); gap: .5rem; }
+.product-gallery__thumb{ width: 100%; height: auto; aspect-ratio: 1 / 1; }
+.product-gallery__thumb img{ object-fit: contain; }
+.product-gallery__main{ touch-action: pan-y; }
+
+/* Gallery slide guides: round arrows on both sides + photo counter */
+.product-gallery__main{ position: relative; }
+.product-gallery__arrow{
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+  width: 34px; height: 34px; border-radius: 50%; border: 0; padding: 0; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(62,36,8,.55); color: #fff;
+  backdrop-filter: blur(2px); transition: background .2s ease, transform .2s ease;
+}
+.product-gallery__arrow:hover{ background: rgba(62,36,8,.8); }
+.product-gallery__arrow:active{ transform: translateY(-50%) scale(.92); }
+.product-gallery__arrow--prev{ left: 8px; }
+.product-gallery__arrow--next{ right: 8px; }
+.product-gallery__counter{
+  position: absolute; right: 10px; bottom: 10px; z-index: 2;
+  padding: 3px 10px; border-radius: 999px; font-size: .75rem; font-weight: 600;
+  background: rgba(62,36,8,.6); color: #fff; pointer-events: none;
+}
+/* a gentle nudge on the arrows when the page opens, to show the photos slide */
+@media (prefers-reduced-motion: no-preference){
+  .product-gallery__arrow--next{ animation: gal-nudge-r 1.2s ease-in-out .8s 2; }
+  .product-gallery__arrow--prev{ animation: gal-nudge-l 1.2s ease-in-out .8s 2; }
+}
+@keyframes gal-nudge-r{ 0%,100%{ transform: translate(0,-50%); } 50%{ transform: translate(5px,-50%); } }
+@keyframes gal-nudge-l{ 0%,100%{ transform: translate(0,-50%); } 50%{ transform: translate(-5px,-50%); } }
