@@ -10,6 +10,11 @@
     "price": null,
     "isSeasonal": false,
     "sortOrder": 1,
-    "status": "published"
+    "status": "published",
+    "images": [
+      "loaf-india-gattoo-bread.webp",
+      "loaf-india-gattoo-bread-2.webp",
+      "loaf-india-gattoo-bread-3.webp"
+    ]
   }
 ]

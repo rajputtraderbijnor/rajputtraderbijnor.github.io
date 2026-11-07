@@ -55,14 +55,58 @@ def find_photo(name):
 
 def list_photos():
     try:
-        return sorted(f for f in os.listdir(DL) if f.lower().endswith(PHOTO_EXT))
+        return sorted(f for f in os.listdir(DL) if f.lower().endswith(PHOTO_EXT) and not f.startswith('.'))
     except OSError:
         return []
 
 
+SIZE = 1000      # finished photos are SIZE x SIZE pixels (square, as the site shows them)
+MARGIN = 40      # breathing space around the product
+
+
+def _plain_light_border(im):
+    """True when the photo has a plain white / very light edge (a studio-style shot)."""
+    w, h = im.size
+    px = im.load()
+    pts = []
+    for i in range(0, w, max(1, w // 40)):
+        pts += [(i, 1), (i, h - 2)]
+    for j in range(0, h, max(1, h // 40)):
+        pts += [(1, j), (w - 2, j)]
+    ok = sum(1 for p in pts if min(px[p]) >= 232)
+    return ok / float(len(pts)) >= 0.95
+
+
+def _square(im):
+    """Make a SIZE x SIZE photo without cutting the product.
+    - Plain light background: trim the empty margin, centre the product on white.
+    - Busy background (kitchen, table...): keep the whole picture and fill the sides
+      with a soft blurred copy of it."""
+    from PIL import Image, ImageChops, ImageFilter
+    if _plain_light_border(im):
+        diff = ImageChops.difference(im, Image.new('RGB', im.size, (255, 255, 255))).convert('L')
+        box = diff.point(lambda p: 255 if p > 14 else 0).getbbox()
+        if box:
+            im = im.crop(box)
+        fg = im.copy()
+        fg.thumbnail((SIZE - 2 * MARGIN, SIZE - 2 * MARGIN), Image.LANCZOS)
+        canvas = Image.new('RGB', (SIZE, SIZE), (255, 255, 255))
+        canvas.paste(fg, ((SIZE - fg.width) // 2, (SIZE - fg.height) // 2))
+        return canvas
+    scale = SIZE / float(min(im.size))
+    bg = im.resize((max(SIZE, int(im.width * scale)), max(SIZE, int(im.height * scale))), Image.LANCZOS)
+    left, top = (bg.width - SIZE) // 2, (bg.height - SIZE) // 2
+    bg = bg.crop((left, top, left + SIZE, top + SIZE)).filter(ImageFilter.GaussianBlur(28))
+    fg = im.copy()
+    fg.thumbnail((SIZE, SIZE), Image.LANCZOS)
+    bg.paste(fg, ((SIZE - fg.width) // 2, (SIZE - fg.height) // 2))
+    return bg
+
+
 def save_photo(src, out_base):
-    """Copy a photo into assets/images/products. If Pillow is installed, shrink it
-    to 1000 px and save as .webp (small and fast). Returns the saved file name."""
+    """Save a photo into assets/images/products.
+    With Pillow installed it is made square (see _square) and saved as a small .webp.
+    Without Pillow it is simply copied. Returns the saved file name."""
     folder = os.path.join(REPO, 'assets', 'images', 'products')
     os.makedirs(folder, exist_ok=True)
     try:
@@ -75,14 +119,13 @@ def save_photo(src, out_base):
             im = bg
         else:
             im = im.convert('RGB')
-        im.thumbnail((1000, 1000))
         name = out_base + '.webp'
-        im.save(os.path.join(folder, name), 'WEBP', quality=85)
+        _square(im).save(os.path.join(folder, name), 'WEBP', quality=84)
         return name
     except ImportError:
         name = out_base + os.path.splitext(src)[1].lower()
         shutil.copy(src, os.path.join(folder, name))
-        print('   (tip: run  pkg install python-pillow  once, and photos will be shrunk automatically)')
+        print('   (tip: run  pip install pillow  once, and photos will be made square and small automatically)')
         return name
 
 
