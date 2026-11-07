@@ -43,7 +43,7 @@
           id: p.id, name: p.name, slug: p.slug || '',
           category: c, brand: b,
           packagingInfo: p.packagingInfo || '', description: p.description || '',
-          coverImage: p.coverImage || '', price: p.price || null,
+          coverImage: (Array.isArray(p.images) && p.images.length ? p.images[0] : p.coverImage) || '', price: p.price || null,
           isSeasonal: !!p.isSeasonal, sortOrder: p.sortOrder || 0,
           search: (p.name + ' ' + (b ? b.name : '') + ' ' + (c ? c.name : '') + ' ' + (p.packagingInfo || '')).toLowerCase()
         };
@@ -144,14 +144,15 @@
     var price = p.price
       ? '<span class="product-card__mrp">MRP: &#8377;' + esc(p.price) + '</span>'
       : '<span class="product-card__mrp product-card__mrp--unpriced">Contact for price</span>';
+    var href = '/product.html?slug=' + encodeURIComponent(p.slug || p.id);
     return '<article class="product-card reveal-card">' +
-      '<div class="product-card__image-link">' +
+      '<a class="product-card__image-link" href="' + href + '" aria-label="View ' + esc(p.name) + '">' +
         '<img src="' + img + '" alt="' + esc(p.name) + '" class="product-card__image" loading="lazy" decoding="async" ' +
           'onerror="this.onerror=null;this.src=\'/assets/images/product-placeholder.svg\'">' + badges +
-      '</div>' +
+      '</a>' +
       '<div class="product-card__body">' +
         (p.brand ? '<span class="product-card__brand">' + esc(p.brand.name) + '</span>' : '') +
-        '<h3 class="product-card__name">' + esc(p.name) + '</h3>' +
+        '<h3 class="product-card__name"><a href="' + href + '">' + esc(p.name) + '</a></h3>' +
         (p.packagingInfo ? '<p class="product-card__pack">' + esc(p.packagingInfo) + '</p>' : '') +
         '<div class="product-card__footer">' + price +
           '<a class="product-card__add-cart" data-cta="whatsapp" data-wa-text="' + esc(waText(p)) + '" href="#" ' +

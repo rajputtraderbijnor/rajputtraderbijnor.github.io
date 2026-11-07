@@ -272,3 +272,15 @@ a.delivery-chip:hover { border-color: var(--gold); color: var(--gold); }
   .reveal-scale.is-visible > *:nth-child(n+7){ animation-delay: .42s; }
   .hero__image img{ will-change: translate; }
 }
+
+/* Product photos: square frame so packaging shots are shown large and uncropped */
+.product-card .product-card__image-link{ height: auto; aspect-ratio: 1 / 1; background-color: #fff; }
+.product-card .product-card__image{ padding: 4px; }
+.product-card .product-card__image[src$=".svg"]{ object-fit: cover; padding: 0; }
+
+/* Product pages: linked card image/name, breadcrumb spacing, action buttons */
+.product-card__image-link{ color: inherit; text-decoration: none; }
+.product-card__name a{ text-decoration: none; }
+.product-details-page .breadcrumb--page{ padding-top: 1.25rem; justify-content: flex-start; }
+.product-detail__actions{ display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
+@media (max-width: 760px){ .product-detail{ grid-template-columns: 1fr; gap: 1.25rem; } }
