@@ -240,6 +240,7 @@
           '</li>' +
         '</ul>' +
         '<div class="navbar__actions">' +
+          '<a href="/search.html" class="navbar__search" aria-label="Search the website"><i class="ri-search-line" aria-hidden="true"></i></a>' +
           '<button type="button" class="navbar__toggle" aria-label="Open menu" aria-expanded="false"><i class="ri-more-2-fill" aria-hidden="true"></i></button>' +
         '</div>' +
       '</nav>';
@@ -393,6 +394,14 @@
     m.src = '/assets/js/motion.js';
     m.defer = true;
     document.body.appendChild(m);
+  })();
+
+  // Enquiry list (add products, send list on WhatsApp)
+  (function () {
+    var e = document.createElement('script');
+    e.src = '/assets/js/enquiry.js';
+    e.defer = true;
+    document.body.appendChild(e);
   })();
 
   siteReady.then(function (site) { bind(site, document); });

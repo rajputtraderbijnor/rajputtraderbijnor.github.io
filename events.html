@@ -70,7 +70,7 @@
         </ul>
         <div class="partner-cta__actions">
           <a href="#" class="btn btn--whatsapp" data-cta="whatsapp" data-wa-text="Hello Rajput Traders, I want to place a bulk / event order.">Order on WhatsApp</a>
-          <a href="/contact.html?type=bulk_event_order" class="btn btn--outline-dark">Send an Enquiry</a>
+          <a href="#bulk-form" class="btn btn--outline-dark">Fill Order Form</a>
         </div>
       </div>
     </section>
@@ -98,6 +98,52 @@
           <div class="serve-card"><i class="ri-store-2-line serve-card__icon" aria-hidden="true"></i><h3>Retailers</h3></div>
           <div class="serve-card"><i class="ri-community-line serve-card__icon" aria-hidden="true"></i><h3>Institutions</h3></div>
         </div>
+      </div>
+    </section>
+
+    <section class="contact-form-section bulk-form-section" id="bulk-form">
+      <div class="container">
+        <h2 class="section-title reveal-up">Request a Bulk Quote</h2>
+        <p class="bulk-form__intro">Choose your products, add quantities and tell us the date. We reply on WhatsApp with wholesale prices.</p>
+        <form class="contact-form bulk-form" id="bulkForm" novalidate>
+          <fieldset class="contact-form__section">
+            <legend>Your details</legend>
+            <div class="contact-form__field"><label for="bf-name">Full Name *</label>
+              <input type="text" id="bf-name" autocomplete="name" required>
+              <span class="form-error-text" data-err="bf-name" hidden>Please enter your name.</span></div>
+            <div class="contact-form__field"><label for="bf-mobile">Mobile Number *</label>
+              <input type="tel" id="bf-mobile" autocomplete="tel" inputmode="tel" required>
+              <span class="form-error-text" data-err="bf-mobile" hidden>Enter a valid 10 digit mobile number.</span></div>
+            <div class="contact-form__field"><label for="bf-business">Business / Organization (optional)</label>
+              <input type="text" id="bf-business" autocomplete="organization"></div>
+            <div class="contact-form__field"><label for="bf-city">Delivery City / Area *</label>
+              <input type="text" id="bf-city" autocomplete="address-level2" required>
+              <span class="form-error-text" data-err="bf-city" hidden>Please enter the delivery city or area.</span></div>
+          </fieldset>
+          <fieldset class="contact-form__section">
+            <legend>Event</legend>
+            <div class="contact-form__field"><label for="bf-date">Date Needed (optional)</label>
+              <input type="date" id="bf-date"></div>
+            <div class="contact-form__field"><label for="bf-time">Preferred Time (optional)</label>
+              <input type="text" id="bf-time" placeholder="e.g. Morning, 4 PM"></div>
+          </fieldset>
+          <fieldset class="contact-form__section">
+            <legend>Products *</legend>
+            <div class="bulk-picker">
+              <input type="search" id="bf-search" placeholder="Search products to add (bread, pav, rusk...)" autocomplete="off" aria-label="Search products">
+              <ul class="bulk-picker__results" id="bf-results" hidden></ul>
+              <ul class="bulk-picker__chosen" id="bf-chosen"></ul>
+              <p class="bulk-picker__empty" id="bf-empty">No products chosen yet. You can also describe your needs in the notes below.</p>
+            </div>
+          </fieldset>
+          <fieldset class="contact-form__section">
+            <legend>Notes</legend>
+            <div class="contact-form__field"><label for="bf-notes">Anything else (optional)</label>
+              <textarea id="bf-notes" rows="3" placeholder="Quantities, event type, special needs"></textarea>
+              <span class="form-error-text" data-err="bf-notes" hidden>Choose at least one product or write your needs in the notes.</span></div>
+          </fieldset>
+          <a href="#" class="btn btn--whatsapp contact-form__submit" id="bf-send" target="_blank" rel="noopener"><i class="ri-whatsapp-line" aria-hidden="true"></i> Request Bulk Quote on WhatsApp</a>
+        </form>
       </div>
     </section>
 
@@ -154,5 +200,6 @@
   </footer>
 
   <script src="/assets/js/site.js" defer></script>
+  <script src="/assets/js/events-form.js" defer></script>
 </body>
 </html>

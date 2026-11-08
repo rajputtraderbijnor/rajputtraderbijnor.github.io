@@ -91,6 +91,7 @@
       (p.price ? '<p class="product-detail__mrp">MRP: &#8377;' + esc(p.price) + '</p>' : '') +
       '<p class="product-detail__price-note">Contact us for wholesale pricing and bulk orders.</p>' +
       '<div class="product-detail__actions">' +
+        '<button type="button" class="btn btn--gold product-detail__add" data-add-list="' + esc(p.id) + '"><i class="ri-add-line" aria-hidden="true"></i><span>ADD TO LIST</span></button>' +
         '<a href="#" class="btn btn--whatsapp" data-cta="whatsapp" data-wa-text="' + esc(waText(p, brand)) + '"><i class="ri-whatsapp-line" aria-hidden="true"></i> Ask Wholesale Price</a>' +
         '<a href="#" class="btn btn--outline-dark" data-cta="call"><i class="ri-phone-line" aria-hidden="true"></i> Call</a>' +
         '<button type="button" class="product-detail__share" id="pd-share" title="Share" aria-label="Share ' + esc(p.name) + '"><i class="ri-share-line" aria-hidden="true"></i></button>' +
@@ -110,6 +111,7 @@
       (p._brand ? '<span class="product-card__brand">' + esc(p._brand.name) + '</span>' : '') +
       '<h3 class="product-card__name"><a href="' + productUrl(p) + '">' + esc(p.name) + '</a></h3>' +
       (p.packagingInfo ? '<p class="product-card__pack">' + esc(p.packagingInfo) + '</p>' : '') +
+      '<div class="product-card__footer"><button type="button" class="product-card__add-cart" data-add-list="' + esc(p.id) + '" aria-label="Add ' + esc(p.name) + ' to enquiry list"><i class="ri-add-line" aria-hidden="true"></i><span>ADD TO LIST</span></button></div>' +
       '</div></article>';
   }
 

@@ -155,9 +155,9 @@
         '<h3 class="product-card__name"><a href="' + href + '">' + esc(p.name) + '</a></h3>' +
         (p.packagingInfo ? '<p class="product-card__pack">' + esc(p.packagingInfo) + '</p>' : '') +
         '<div class="product-card__footer">' + price +
-          '<a class="product-card__add-cart" data-cta="whatsapp" data-wa-text="' + esc(waText(p)) + '" href="#" ' +
-            'aria-label="Ask price of ' + esc(p.name) + ' on WhatsApp">' +
-            '<i class="ri-whatsapp-line" aria-hidden="true"></i><span>ENQUIRE</span></a>' +
+          '<button type="button" class="product-card__add-cart" data-add-list="' + esc(p.id) + '" ' +
+            'aria-label="Add ' + esc(p.name) + ' to enquiry list">' +
+            '<i class="ri-add-line" aria-hidden="true"></i><span>ADD TO LIST</span></button>' +
         '</div>' +
       '</div></article>';
   }

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search | Rajput Traders</title>
+  <meta name="description" content="Search products, brands, FAQs and pages on the Rajput Traders wholesale bakery website.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://rajputtraderbijnor.github.io/search.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Rajput Traders">
+  <meta property="og:title" content="Search | Rajput Traders">
+  <meta property="og:description" content="Search the Rajput Traders website.">
+  <meta property="og:url" content="https://rajputtraderbijnor.github.io/search.html">
+  <meta property="og:image" content="https://rajputtraderbijnor.github.io/assets/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#3F2505">
+  <link rel="icon" type="image/png" href="/assets/images/favicon-64.png">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/extras.css">
+</head>
+<body data-page="search">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Header is built by assets/js/site.js -->
+  <header id="site-header" class="site-header">
+    <noscript>
+      <nav class="noscript-nav" aria-label="Primary">
+        <a href="/">Home</a> <a href="/products.html">Products</a> <a href="/brands.html">Brands</a>
+        <a href="/about.html">About Us</a> <a href="/contact.html">Contact</a>
+      </nav>
+    </noscript>
+  </header>
+
+  <main id="main" class="site-main search-page">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol class="breadcrumb__list">
+            <li class="breadcrumb__item"><a href="/">Home</a></li>
+            <li class="breadcrumb__separator" aria-hidden="true">/</li>
+            <li class="breadcrumb__item"><span aria-current="page">Search</span></li>
+          </ol>
+        </nav>
+        <h1 class="page-hero__title">Search</h1>
+        <p class="page-hero__subtitle">Find products, brands, answers and pages.</p>
+        <form class="search-box" id="search-form" role="search" autocomplete="off">
+          <i class="ri-search-line" aria-hidden="true"></i>
+          <input type="search" id="search-input" placeholder="Search bread, pav, rusk, brand..." aria-label="Search the website" enterkeyhint="search">
+          <button type="button" id="search-clear" class="search-box__clear" aria-label="Clear search" hidden><i class="ri-close-line" aria-hidden="true"></i></button>
+        </form>
+      </div>
+    </section>
+
+    <section class="search-results-section">
+      <div class="container">
+        <div class="search-chips" id="search-chips" hidden></div>
+        <p class="search-count" id="search-count" role="status" aria-live="polite"></p>
+        <div id="search-results"></div>
+        <div class="search-start" id="search-start">
+          <h2 class="search-start__title">Popular searches</h2>
+          <div class="search-popular" id="search-popular"></div>
+          <p class="search-tip">Tip: type a product, a brand name or a word like "delivery" or "minimum order".</p>
+        </div>
+        <div class="search-none" id="search-none" hidden>
+          <i class="ri-search-eye-line" aria-hidden="true"></i>
+          <p class="search-none__title">Nothing found</p>
+          <p>Try a shorter word, or ask us directly on WhatsApp.</p>
+          <a href="#" class="btn btn--whatsapp" data-cta="whatsapp" data-wa-text="Hello Rajput Traders, I could not find a product on your website. Can you help?"><i class="ri-whatsapp-line" aria-hidden="true"></i> Ask on WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer is built by assets/js/site.js -->
+  <footer id="site-footer" class="site-footer">
+    <noscript>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Rajput Traders</h3>
+          <p>Wholesale bakery distributor in Bijnor, Uttar Pradesh, since 2000.</p>
+          <a href="tel:+919927637594">+91 99276 37594</a>
+        </div>
+      </div>
+    </noscript>
+  </footer>
+
+  <script src="/assets/js/site.js" defer></script>
+  <script src="/assets/js/search.js" defer></script>
+</body>
+</html>
