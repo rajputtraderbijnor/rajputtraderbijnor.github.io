@@ -554,3 +554,22 @@ button.product-card__add-cart{border:0;cursor:pointer;font-family:inherit}
 .enq-confirm__text{margin:0 0 1.1rem;font-size:.88rem;color:#7a6652}
 .enq-confirm__actions{display:flex;gap:.6rem}
 .enq-confirm__actions .btn{flex:1;justify-content:center;padding:.65rem .5rem;font-size:.85rem}
+
+/* ===== Latest updates: larger, text wraps instead of being cut off ===== */
+.updates__viewport{display:grid;min-height:0}
+.updates__item{position:static;grid-area:1/1;inset:auto}
+.updates__slide{padding:.8rem .9rem;gap:.7rem;align-items:center}
+.updates__icon{font-size:1.5rem}
+.updates__text{line-height:1.35;gap:.1rem}
+.updates__text strong{font-size:1rem;white-space:normal;overflow:visible;text-overflow:clip}
+.updates__text span{font-size:.88rem;white-space:normal;overflow:visible;text-overflow:clip}
+.updates__label{font-size:.78rem;padding:0 1rem}
+@media (max-width:420px){.updates__label{padding:0 .7rem;font-size:.72rem}.updates__text strong{font-size:.95rem}.updates__text span{font-size:.84rem}}
+
+/* ===== Latest updates: dark brown bar, white text, gold label ===== */
+.updates__bar{background:var(--primary,#3f2505);border-color:var(--gold,#d4a537);box-shadow:0 4px 14px rgba(63,37,5,.25)}
+.updates__label{background:var(--gold,#d4a537);background-image:none;color:var(--primary,#3f2505);text-align:center;line-height:1.3;font-weight:800;letter-spacing:.05em}
+.updates__slide{color:#fff}
+.updates__text strong{color:#fff}
+.updates__text span{color:#f1e3c4}
+.updates__icon,.updates__go{color:var(--light-gold,#e8c46a)}

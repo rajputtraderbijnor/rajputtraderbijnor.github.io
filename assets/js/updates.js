@@ -35,7 +35,7 @@
     });
 
     host.innerHTML = '<div class="container"><div class="updates__bar" role="region" aria-label="Latest updates">' +
-      '<span class="updates__label">Latest</span><div class="updates__viewport">' +
+      '<span class="updates__label">Latest<br>Update</span><div class="updates__viewport">' +
       slides.map(function (s, i) { return '<div class="updates__item' + (i === 0 ? ' is-active' : '') + '">' + s + '</div>'; }).join('') +
       '</div></div></div>';
     host.hidden = false;

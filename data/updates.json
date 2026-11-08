@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "id": 3,
+    "title": "New: Fruity range now available",
+    "text": "Sweet Fruit Bun and Sweet Fruit Bread",
+    "date": "2026-11-08",
+    "link": "/products.html?category=fruit-bun",
+    "isActive": true
+  },
+  {
+    "id": 2,
+    "title": "Bulk & event orders open",
+    "text": "Weddings, parties, caterers · 25% advance",
+    "date": "2026-11-08",
+    "link": "/events.html#bulk-form",
+    "isActive": true
+  },
+  {
+    "id": 1,
+    "title": "Order bakery stock on WhatsApp",
+    "text": "Minimum order ₹500 · Bijnor and nearby",
+    "date": "2026-11-08",
+    "link": "/products.html",
+    "isActive": true
+  }
+]
