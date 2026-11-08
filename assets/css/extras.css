@@ -537,3 +537,10 @@ button.product-card__add-cart{border:0;cursor:pointer;font-family:inherit}
 .order-form label{display:block;font-size:.85rem;font-weight:500;margin-bottom:.3rem;color:#3b2418}
 .order-form [aria-invalid="true"]{border-color:#b3261e}
 [data-page="order"] .enq-fab,[data-page="order"] .enq-toast{display:none}
+
+/* ===== Header: search icon + menu button sit together, centred in the bar ===== */
+.navbar__actions{display:flex;align-items:center;gap:.15rem;flex-shrink:0}
+.navbar__search,.navbar__toggle{width:2.5rem;height:2.5rem;display:inline-flex;align-items:center;justify-content:center;padding:0;line-height:1;font-size:1.4rem;color:var(--cream,#fbf1dc);background:none;border:0;border-radius:50%}
+.navbar__toggle{display:none}
+.navbar__search:hover{color:var(--gold,#d4a537)}
+@media (max-width:860px){.navbar__toggle{display:inline-flex}}
