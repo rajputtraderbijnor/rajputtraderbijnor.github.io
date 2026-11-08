@@ -207,12 +207,20 @@ def ask_photos(slug, existing=0):
         return []
     print('\nYour newest photos:')
     _show_list(items)
+    drain_input()
     while True:
         raw = input('Type the numbers of the photos for this product, separated by commas (example: 1,3),\n'
                     'or file names, or "more" to see older photos, or press Enter to skip: ').strip()
         if raw.lower() == 'more':
             items = list_photos(45)
             _show_list(items)
+            continue
+        bad = [p.strip() for p in raw.split(',') if p.strip() and not (
+            (p.strip().isdigit() and 1 <= int(p.strip()) <= len(items)) or find_photo(p.strip()))]
+        if bad:
+            print('   That is not a photo number or file name: "%s"' % raw[:60])
+            print('   Type only numbers from the list, like  1,2,3')
+            drain_input()
             continue
         break
     saved = []
@@ -250,7 +258,10 @@ def ask_line(prompt):
     """Ask one question. If the person pastes several lines (a long description with
     Enter inside it), the extra lines are joined into the same answer instead of
     spilling into the next questions."""
-    parts = [input(prompt).strip()]
+    # read the terminal directly: input() swallows pasted extra lines on some phones
+    sys.stdout.write(prompt)
+    sys.stdout.flush()
+    parts = [sys.stdin.readline().strip()]
     time.sleep(0.5)
     while True:
         ready, _, _ = select.select([sys.stdin], [], [], 0.4)
@@ -261,3 +272,13 @@ def ask_line(prompt):
             break
         parts.append(line.strip())
     return ' '.join(p for p in parts if p)
+
+
+def drain_input(wait=0.8):
+    """Throw away anything still waiting in the keyboard buffer (leftover pasted lines)."""
+    try:
+        import termios
+        time.sleep(wait)
+        termios.tcflush(sys.stdin.fileno(), termios.TCIFLUSH)
+    except Exception:
+        pass

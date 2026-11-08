@@ -76,5 +76,63 @@
     "isSeasonal": false,
     "sortOrder": 4,
     "status": "published"
+  },
+  {
+    "id": 5,
+    "name": "Super Sandwich Bread",
+    "slug": "loaf-india-super-sandwich-bread",
+    "categoryId": 7,
+    "brandId": 101,
+    "packagingInfo": "400 g",
+    "description": "Loaf India Super Sandwich Bread (400g). Soft, fresh and delicious sandwich bread with large slices, perfect for everyday breakfasts, family snacks, toast and grilled sandwiches.",
+    "coverImage": "loaf-india-super-sandwich-bread.webp",
+    "images": [
+      "loaf-india-super-sandwich-bread.webp",
+      "loaf-india-super-sandwich-bread-2.webp",
+      "loaf-india-super-sandwich-bread-3.webp"
+    ],
+    "price": 40,
+    "isSeasonal": false,
+    "sortOrder": 5,
+    "status": "published"
+  },
+  {
+    "id": 6,
+    "name": "Super Sandwich Bread 600g",
+    "slug": "loaf-india-super-sandwich-bread-600g",
+    "categoryId": 7,
+    "brandId": 101,
+    "packagingInfo": "600 g",
+    "description": "Loaf India Super Sandwich Bread (600g). Soft, fresh and delicious sandwich bread for the whole family, ideal for tasty sandwiches, toast and quick breakfast or snack recipes.",
+    "coverImage": "loaf-india-super-sandwich-bread-600g.webp",
+    "images": [
+      "loaf-india-super-sandwich-bread-600g.webp",
+      "loaf-india-super-sandwich-bread-600g-2.webp",
+      "loaf-india-super-sandwich-bread-600g-3.webp"
+    ],
+    "price": 60,
+    "isSeasonal": false,
+    "sortOrder": 6,
+    "status": "published"
+  },
+  {
+    "id": 7,
+    "name": "Wow Pav",
+    "slug": "loaf-india-wow-pav",
+    "categoryId": 2,
+    "brandId": 101,
+    "packagingInfo": "250 g",
+    "description": "Loaf India Wow Pav (250g). Soft, fluffy and delicious pav, ideal for pav bhaji, vada pav, masala pav or enjoying with butter. A delightful choice for family meals and evening snacks.",
+    "coverImage": "loaf-india-wow-pav.webp",
+    "images": [
+      "loaf-india-wow-pav.webp",
+      "loaf-india-wow-pav-2.webp",
+      "loaf-india-wow-pav-3.webp",
+      "loaf-india-wow-pav-4.webp"
+    ],
+    "price": 40,
+    "isSeasonal": false,
+    "sortOrder": 7,
+    "status": "published"
   }
 ]

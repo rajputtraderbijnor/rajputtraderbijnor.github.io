@@ -89,8 +89,13 @@
     return 'https://wa.me/' + num + '?text=' + encodeURIComponent(text || DEFAULT_WA_TEXT);
   }
 
+  // Directions go to the real "RAJPUT TRADERS" Google Maps listing (so the name shows, not a
+  // nearby street address). To use a different link, put it in data/site.json as "directionsUrl".
+  var PLACE_ID = '0x390beffe93423987:0x986745e8266851a5';
   function directionsUrl(site) {
-    return 'https://www.google.com/maps/dir/?api=1&destination=' + site.lat + ',' + site.lng;
+    if (site.directionsUrl) return site.directionsUrl;
+    return 'https://www.google.com/maps/dir//RAJPUT+TRADERS/@' + site.lat + ',' + site.lng + ',17z/data=!4m8!4m7!1m0!1m5!1m1!1s' +
+      PLACE_ID + '!2m2!1d' + site.lng + '!2d' + site.lat;
   }
 
   /* Icons come from JSON files, so accept only safe Remix Icon class names. */
