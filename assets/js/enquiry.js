@@ -62,7 +62,7 @@
             id: p.id, name: p.name, slug: p.slug || '',
             brand: brands[p.brandId] ? brands[p.brandId].name : '',
             category: cats[p.categoryId] || null,
-            pack: p.packagingInfo || '', sortOrder: p.sortOrder || 0,
+            pack: p.packagingInfo || '', sortOrder: p.sortOrder || 0, price: parseFloat(p.price) > 0 ? parseFloat(p.price) : 0,
             img: file ? '/assets/images/products/' + encodeURIComponent(file) : '/assets/images/product-placeholder.svg'
           };
         });
@@ -95,6 +95,14 @@
     id = String(id);
     if (!items[id]) { items[id] = 1; changed(); }
   }
+
+  /* Sum of MRP x quantity for products that have a price. */
+  function total() {
+    var t = 0;
+    ids().forEach(function (id) { if (byId[id] && byId[id].price) t += byId[id].price * items[id]; });
+    return Math.round(t * 100) / 100;
+  }
+  function item(id) { return byId[String(id)] || null; }
 
   function clear() { items = {}; changed(); }
   function onChange(fn) { listeners.push(fn); }
@@ -168,8 +176,7 @@
   /* ---------------- drawer ---------------- */
 
   function buildDrawer() {
-    var saved = readJson(CKEY) || {};
-    drawer = document.createElement('div');
+        drawer = document.createElement('div');
     drawer.className = 'enq';
     drawer.id = 'enquiryDrawer';
     drawer.setAttribute('aria-hidden', 'true');
@@ -182,15 +189,9 @@
         '</header>' +
         '<div class="enq__body" data-enq-body></div>' +
         '<footer class="enq__foot" data-enq-foot>' +
-          '<p class="enq__note">We reply on WhatsApp with wholesale prices. <span data-enq-min></span></p>' +
-          '<div class="enq__field"><label for="enqName">Your name *</label>' +
-            '<input type="text" id="enqName" autocomplete="name" value="' + esc(saved.name || '') + '">' +
-            '<span class="form-error-text" id="enqName-error" hidden>Please enter your name.</span></div>' +
-          '<div class="enq__field"><label for="enqBusiness">Shop / business (optional)</label>' +
-            '<input type="text" id="enqBusiness" autocomplete="organization" value="' + esc(saved.business || '') + '"></div>' +
-          '<div class="enq__field"><label for="enqNote">Note (optional)</label>' +
-            '<textarea id="enqNote" rows="2" placeholder="Delivery area, date needed, anything else"></textarea></div>' +
-          '<a href="#" class="btn btn--whatsapp enq__send" data-enq-send target="_blank" rel="noopener"><i class="ri-whatsapp-line" aria-hidden="true"></i> Send on WhatsApp</a>' +
+          '<div class="enq__total"><span>Estimated total (at MRP)</span><strong data-enq-total></strong></div>' +
+          '<p class="enq__note">Final wholesale prices are confirmed by us on WhatsApp. <span data-enq-min></span></p>' +
+          '<a href="/order.html" class="btn btn--gold enq__send"><i class="ri-shopping-bag-3-line" aria-hidden="true"></i> Place Order</a>' +
           '<button type="button" class="enq__clear" data-enq-clear>Clear list</button>' +
         '</footer>' +
       '</aside>';
@@ -207,7 +208,7 @@
       else if (rem) setQty(rem.getAttribute('data-enq-remove'), 0);
       else if (t.closest('[data-enq-clear]')) {
         if (window.confirm('Remove all products from your list?')) clear();
-      } else if (t.closest('[data-enq-send]')) send(e);
+      }
     });
     drawer.addEventListener('change', function (e) {
       var inp = e.target.closest('[data-enq-input]');
@@ -242,6 +243,7 @@
     var body = drawer.querySelector('[data-enq-body]');
     var foot = drawer.querySelector('[data-enq-foot]');
     foot.hidden = n === 0;
+    drawer.querySelector('[data-enq-total]').textContent = '\u20B9' + total().toLocaleString('en-IN');
     if (!n) {
       body.innerHTML = '<div class="enq__empty"><i class="ri-file-list-3-line" aria-hidden="true"></i>' +
         '<p class="enq__empty-title">Your list is empty</p>' +
@@ -259,6 +261,7 @@
         '<div class="enq-item__main">' +
           '<a href="' + href + '" class="enq-item__name">' + esc(p.name) + '</a>' +
           '<span class="enq-item__meta">' + esc([p.brand, p.pack].filter(Boolean).join(' · ')) + '</span>' +
+          '<span class="enq-item__price">' + (p.price ? 'MRP \u20B9' + p.price : 'Price on request') + '</span>' +
           '<div class="enq-stepper">' +
             '<button type="button" data-enq-dec="' + esc(id) + '" aria-label="Fewer ' + esc(p.name) + '"><i class="ri-subtract-line" aria-hidden="true"></i></button>' +
             '<input type="number" inputmode="numeric" min="1" max="' + MAX_QTY + '" value="' + items[id] + '" data-enq-input="' + esc(id) + '" aria-label="Quantity of ' + esc(p.name) + '">' +
@@ -269,27 +272,6 @@
       '</li>';
     }).join('');
     body.innerHTML = '<ul class="enq__items">' + rows + '</ul>';
-  }
-
-  function send(e) {
-    var name = drawer.querySelector('#enqName');
-    var err = drawer.querySelector('#enqName-error');
-    var nameVal = name.value.trim();
-    if (!nameVal) {
-      e.preventDefault();
-      err.hidden = false;
-      name.focus();
-      return;
-    }
-    err.hidden = true;
-    var business = drawer.querySelector('#enqBusiness').value.trim();
-    var note = drawer.querySelector('#enqNote').value.trim();
-    writeJson(CKEY, { name: nameVal, business: business });
-    var extra = ['', 'Name: ' + nameVal];
-    if (business) extra.push('Shop / business: ' + business);
-    if (note) extra.push('Note: ' + note);
-    var link = drawer.querySelector('[data-enq-send]');
-    link.setAttribute('href', RT.waUrl(site || {}, message(null, extra)));
   }
 
   /* ---------------- keep everything in sync ---------------- */
@@ -350,7 +332,7 @@
 
   RT.enquiry = {
     add: add, setQty: setQty, qty: qty, count: count, ids: ids, clear: clear,
-    open: open, onChange: onChange, message: message, catalog: catalog
+    open: open, onChange: onChange, message: message, catalog: catalog, total: total, item: item, KEY: KEY, CKEY: CKEY
   };
 
   init();

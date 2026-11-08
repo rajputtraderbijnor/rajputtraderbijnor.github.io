@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Place Order | Rajput Traders</title>
+  <meta name="description" content="Review your enquiry list and send your wholesale order to Rajput Traders on WhatsApp.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://rajputtraderbijnor.github.io/order.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Rajput Traders">
+  <meta property="og:title" content="Place Order | Rajput Traders">
+  <meta property="og:description" content="Send your wholesale order to Rajput Traders.">
+  <meta property="og:url" content="https://rajputtraderbijnor.github.io/order.html">
+  <meta property="og:image" content="https://rajputtraderbijnor.github.io/assets/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#3F2505">
+  <link rel="icon" type="image/png" href="/assets/images/favicon-64.png">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/extras.css">
+</head>
+<body data-page="order">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Header is built by assets/js/site.js -->
+  <header id="site-header" class="site-header">
+    <noscript>
+      <nav class="noscript-nav" aria-label="Primary">
+        <a href="/">Home</a> <a href="/products.html">Products</a> <a href="/brands.html">Brands</a>
+        <a href="/about.html">About Us</a> <a href="/contact.html">Contact</a>
+      </nav>
+    </noscript>
+  </header>
+
+  <main id="main" class="site-main order-page">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol class="breadcrumb__list">
+            <li class="breadcrumb__item"><a href="/">Home</a></li>
+            <li class="breadcrumb__separator" aria-hidden="true">/</li>
+            <li class="breadcrumb__item"><span aria-current="page">Place Order</span></li>
+          </ol>
+        </nav>
+        <h1 class="page-hero__title">Place Your Order</h1>
+        <p class="page-hero__subtitle">Check your list, add your details and send it to us on WhatsApp.</p>
+      </div>
+    </section>
+
+    <section class="order-section">
+      <div class="container order-wrap">
+        <div id="order-empty" class="enq__empty" hidden>
+          <i class="ri-file-list-3-line" aria-hidden="true"></i>
+          <p class="enq__empty-title">Your list is empty</p>
+          <p>Add products to your enquiry list first.</p>
+          <a href="/products.html" class="btn btn--gold">Browse Products</a>
+        </div>
+
+        <div id="order-content" hidden>
+          <div class="order-card">
+            <div class="order-card__head">
+              <h2>Your Order List <span id="order-count"></span></h2>
+              <button type="button" class="order-edit" data-open-list><i class="ri-edit-line" aria-hidden="true"></i> Edit list</button>
+            </div>
+            <div class="order-table-wrap">
+              <table class="order-table">
+                <thead><tr><th>Product</th><th class="num">Qty</th><th class="num">MRP</th><th class="num">Amount</th></tr></thead>
+                <tbody id="order-rows"></tbody>
+                <tfoot><tr><th colspan="3">Estimated total (at MRP)</th><th class="num" id="order-total"></th></tr></tfoot>
+              </table>
+            </div>
+            <p class="order-note" id="order-note">Prices shown are MRP. Our wholesale price is lower and is confirmed by us on WhatsApp before your order is final.</p>
+          </div>
+
+          <form class="contact-form order-form" id="orderForm" novalidate>
+            <fieldset class="contact-form__section">
+              <legend>Your details</legend>
+              <div class="contact-form__field"><label for="of-name">Full Name *</label>
+                <input type="text" id="of-name" autocomplete="name" required>
+                <span class="form-error-text" data-err="of-name" hidden>Please enter your name.</span></div>
+              <div class="contact-form__field"><label for="of-mobile">Mobile Number *</label>
+                <input type="tel" id="of-mobile" autocomplete="tel" inputmode="tel" placeholder="10 digit mobile number" required>
+                <span class="form-error-text" data-err="of-mobile" hidden>Enter a valid 10 digit mobile number.</span></div>
+              <div class="contact-form__field"><label for="of-business">Shop / Business (optional)</label>
+                <input type="text" id="of-business" autocomplete="organization"></div>
+              <div class="contact-form__field"><label for="of-city">Delivery Address / Area *</label>
+                <input type="text" id="of-city" autocomplete="street-address" required>
+                <span class="form-error-text" data-err="of-city" hidden>Please enter the delivery address or area.</span></div>
+              <div class="contact-form__field"><label for="of-date">Date Needed (optional)</label>
+                <input type="date" id="of-date"></div>
+              <div class="contact-form__field"><label for="of-notes">Notes (optional)</label>
+                <textarea id="of-notes" rows="3" placeholder="Anything else we should know"></textarea></div>
+            </fieldset>
+            <a href="#" class="btn btn--whatsapp contact-form__submit" id="of-send" target="_blank" rel="noopener"><i class="ri-whatsapp-line" aria-hidden="true"></i> Send Order on WhatsApp</a>
+            <p class="order-note order-note--center">Or call us: <a href="tel:+919927637594" data-cta="call">+91 99276 37594</a></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer is built by assets/js/site.js -->
+  <footer id="site-footer" class="site-footer">
+    <noscript>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Rajput Traders</h3>
+          <p>Wholesale bakery distributor in Bijnor, Uttar Pradesh, since 2000.</p>
+          <a href="tel:+919927637594">+91 99276 37594</a>
+        </div>
+      </div>
+    </noscript>
+  </footer>
+
+  <script src="/assets/js/site.js" defer></script>
+  <script src="/assets/js/order.js" defer></script>
+</body>
+</html>
