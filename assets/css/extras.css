@@ -322,3 +322,16 @@ a.delivery-chip:hover { border-color: var(--gold); color: var(--gold); }
 }
 @keyframes gal-nudge-r{ 0%,100%{ transform: translate(0,-50%); } 50%{ transform: translate(5px,-50%); } }
 @keyframes gal-nudge-l{ 0%,100%{ transform: translate(0,-50%); } 50%{ transform: translate(-5px,-50%); } }
+
+/* Solid brown button (Contact) and a steady gold: same colours on every page */
+.btn--brown{ background-color: var(--primary); color: var(--white); border: 2px solid var(--primary); }
+.btn--brown:hover{ background-color: var(--secondary); border-color: var(--secondary); color: var(--white); }
+/* On touch screens a tapped button must not stay in its "hover" colour */
+@media (hover: none){
+  .btn:hover{ transform: none; }
+  .btn--gold:hover{ background-color: var(--gold); }
+  .btn--outline:hover{ background-color: transparent; color: var(--primary); }
+  .btn--outline-dark:hover{ background-color: transparent; color: var(--primary); }
+  .btn--whatsapp:hover{ background-color: var(--whatsapp); }
+  .btn--brown:hover{ background-color: var(--primary); border-color: var(--primary); }
+}
