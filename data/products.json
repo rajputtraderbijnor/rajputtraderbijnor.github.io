@@ -134,5 +134,24 @@
     "isSeasonal": false,
     "sortOrder": 7,
     "status": "published"
+  },
+  {
+    "id": 8,
+    "name": "Sweet Fruit Bread",
+    "slug": "loaf-india-sweet-fruit-bread",
+    "categoryId": 6,
+    "brandId": 101,
+    "packagingInfo": "150 g",
+    "description": "Loaf India Sweet Fruit Bread is a soft, premium bakery treat packed with sweet fruit pieces. Hygienically packed for freshness, this 150g pack is ideal for a quick breakfast or a delicious tea-time snack.",
+    "coverImage": "loaf-india-sweet-fruit-bread.webp",
+    "images": [
+      "loaf-india-sweet-fruit-bread.webp",
+      "loaf-india-sweet-fruit-bread-2.webp",
+      "loaf-india-sweet-fruit-bread-3.webp"
+    ],
+    "price": 20,
+    "isSeasonal": false,
+    "sortOrder": 8,
+    "status": "published"
   }
 ]
