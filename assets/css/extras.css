@@ -335,3 +335,41 @@ a.delivery-chip:hover { border-color: var(--gold); color: var(--gold); }
   .btn--whatsapp:hover{ background-color: var(--whatsapp); }
   .btn--brown:hover{ background-color: var(--primary); border-color: var(--primary); }
 }
+
+/* ===== Products page: a bigger, clearer bakery shape in every category row (alternating sides) =====
+   Safe to delete this block. Change 130px for the size, 0.22 for how strong. */
+.products-category-group{ padding-bottom: 4.5rem; margin-bottom: .5rem; background-repeat: no-repeat; background-size: 130px 130px; }
+.products-main .products-category-group:nth-of-type(6n+1){ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='78' height='78' viewBox='-9.0 -18.0 78 78'%3E%3Cg opacity='0.24' transform='rotate(-14%2030.0%2021.0)'%3E%3Cg fill='none' stroke='%233F2505' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 36 Q4 8 30 8 Q56 8 56 36 Z'/%3E%3C/g%3E%3Cg fill='%233F2505'%3E%3Ccircle cx='20' cy='16' r='1.6'/%3E%3Ccircle cx='30' cy='12' r='1.6'/%3E%3Ccircle cx='40' cy='16' r='1.6'/%3E%3Ccircle cx='24' cy='22' r='1.6'/%3E%3Ccircle cx='36' cy='22' r='1.6'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); background-position: right 2px bottom 4px; }
+.products-main .products-category-group:nth-of-type(6n+2){ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='103' height='103' viewBox='-31.5 -6.5 103 103'%3E%3Cg opacity='0.24' transform='rotate(20%2020.0%2045.0)'%3E%3Cg fill='none' stroke='%233F2505' stroke-width='2.5' stroke-linecap='round'%3E%3Cline x1='20' y1='5' x2='20' y2='85'/%3E%3Cline x1='20' y1='16' x2='9' y2='9'/%3E%3Cline x1='20' y1='16' x2='31' y2='9'/%3E%3Cline x1='20' y1='28' x2='9' y2='21'/%3E%3Cline x1='20' y1='28' x2='31' y2='21'/%3E%3Cline x1='20' y1='40' x2='9' y2='33'/%3E%3Cline x1='20' y1='40' x2='31' y2='33'/%3E%3Cline x1='20' y1='52' x2='11' y2='46'/%3E%3Cline x1='20' y1='52' x2='29' y2='46'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); background-position: left 2px bottom 4px; }
+.products-main .products-category-group:nth-of-type(6n+3){ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='91' height='91' viewBox='-10.5 -20.5 91 91'%3E%3Cg opacity='0.24' transform='rotate(-8%2035.0%2025.0)%20translate(35.0%2025.0)%20scale(-1%201)%20translate(-35.0%20-25.0)'%3E%3Cg fill='none' stroke='%233F2505' stroke-width='2.5' stroke-linejoin='round'%3E%3Cpath d='M8 44 L8 26 Q8 6 35 6 Q62 6 62 26 L62 44 Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); background-position: right 2px bottom 4px; }
+.products-main .products-category-group:nth-of-type(6n+4){ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='85' height='85' viewBox='-7.5 -22.5 85 85'%3E%3Cg opacity='0.24' transform='rotate(24%2035.0%2020.0)'%3E%3Cg fill='none' stroke='%233F2505' stroke-width='2.5' stroke-linejoin='round'%3E%3Cpath d='M4 34 L4 20 Q4 8 20 8 Q36 8 36 20 L36 34 Z'/%3E%3Cpath d='M34 34 L34 20 Q34 8 50 8 Q66 8 66 20 L66 34 Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); background-position: left 2px bottom 4px; }
+.products-main .products-category-group:nth-of-type(6n+5){ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='82' height='82' viewBox='-13.5 -13.5 82 82'%3E%3Cg opacity='0.24' transform='rotate(-20%2027.5%2027.5)'%3E%3Cg fill='none' stroke='%233F2505' stroke-width='2.5' stroke-linejoin='round'%3E%3Cpath d='M6 50 L6 24 Q6 6 27.5 6 Q49 6 49 24 L49 50 Z'/%3E%3Crect x='14' y='18' width='27' height='24' rx='3' stroke-width='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); background-position: right 2px bottom 4px; }
+.products-main .products-category-group:nth-of-type(6n+6){ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='108' height='108' viewBox='-4.0 -40.0 108 108'%3E%3Cg opacity='0.24' transform='rotate(10%2050.0%2014.0)%20translate(50.0%2014.0)%20scale(-1%201)%20translate(-50.0%20-14.0)'%3E%3Cg fill='none' stroke='%233F2505' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 22 Q4 14 10 8 Q20 3 50 3 Q80 3 90 8 Q96 14 94 22 Q80 26 50 26 Q20 26 6 22 Z'/%3E%3Cline x1='24' y1='8' x2='18' y2='18'/%3E%3Cline x1='42' y1='6' x2='36' y2='18'/%3E%3Cline x1='60' y1='6' x2='54' y2='18'/%3E%3Cline x1='78' y1='8' x2='72' y2='18'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); background-position: left 2px bottom 4px; }
+@media (max-width: 600px){ .products-category-group{ background-size: 108px 108px; padding-bottom: 4rem; } }
+
+/* Products page rows: slightly smaller cards (was 150px / 130px wide) */
+.product-scroll{ gap: 1rem; }
+.product-scroll__item{ flex-basis: 128px; }
+@media (max-width: 768px){
+  .product-scroll__item{ flex-basis: 112px; }
+  .product-scroll .product-card__body{ padding: .55rem .5rem .6rem; }
+  .product-scroll .product-card__name{ font-size: .8rem; }
+  .product-scroll .product-card__pack{ font-size: .72rem; }
+  .product-scroll .product-card__mrp{ font-size: .78rem; }
+  .product-scroll .product-card__add-cart{ padding: .35rem .6rem; font-size: .68rem; }
+}
+
+/* Products page rows: every card exactly the same size (width, photo, name and button line up) */
+.product-scroll{ align-items: stretch; }
+.product-scroll__item{ flex: 0 0 128px; width: 128px; min-width: 128px; max-width: 128px; display: flex; }
+@media (max-width: 768px){
+  .product-scroll__item{ flex: 0 0 112px; width: 112px; min-width: 112px; max-width: 112px; }
+}
+.product-scroll__item .product-card{ width: 100%; min-width: 0; height: auto; display: flex; flex-direction: column; }
+.product-scroll__item .product-card__body{ flex: 1; display: flex; flex-direction: column; min-width: 0; }
+.product-scroll__item .product-card__name{
+  min-height: 2.5em; white-space: normal; text-overflow: clip; overflow-wrap: anywhere; word-break: break-word;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.product-scroll__item .product-card__pack{ min-height: 1.3em; }
+.product-scroll__item .product-card__footer{ margin-top: auto; }

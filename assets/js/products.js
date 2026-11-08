@@ -162,17 +162,56 @@
       '</div></article>';
   }
 
+  /* ---------- grouped view: one scrollable row per category (when nothing is searched/filtered) ---------- */
+
+  function isGrouped() { return !state.q && !state.category && !state.brand; }
+
+  function renderGroups() {
+    var box = $('category-groups');
+    var byCat = {}, other = [];
+    all.forEach(function (p) {
+      if (p.category) (byCat[p.category.slug] = byCat[p.category.slug] || []).push(p); else other.push(p);
+    });
+    function bySort(a, b) {
+      if (state.sort === 'name-asc') return a.name.localeCompare(b.name);
+      if (state.sort === 'name-desc') return b.name.localeCompare(a.name);
+      return a.sortOrder - b.sortOrder || a.name.localeCompare(b.name);
+    }
+    var cats = categories.slice().sort(function (a, b) { return (a.sortOrder || 0) - (b.sortOrder || 0) || a.name.localeCompare(b.name); });
+    var html = '';
+    function group(title, slug, list) {
+      list = list.slice().sort(bySort);
+      html += '<section class="products-category-group">' +
+        '<div class="products-category-group__header">' +
+          '<h2 class="products-category-group__title">' + esc(title) + '</h2>' +
+          '<span class="products-category-group__count">' + list.length + ' Product' + (list.length === 1 ? '' : 's') + '</span>' +
+          (slug ? '<a href="?category=' + encodeURIComponent(slug) + '" class="products-category-group__view-all" data-viewall="' + esc(slug) + '">View All</a>' : '') +
+        '</div>' +
+        '<div class="product-scroll">' +
+          list.map(function (p) { return '<div class="product-scroll__item">' + card(p).replace(' reveal-card', '') + '</div>'; }).join('') +
+        '</div></section>';
+    }
+    cats.forEach(function (c) { if (byCat[c.slug]) group(c.name, c.slug, byCat[c.slug]); });
+    if (other.length) group('More Products', '', other);
+    box.innerHTML = html;
+    if (site) RT.bind(site, box);
+  }
+
   function render() {
     var list = filtered();
     var visible = list.slice(0, state.shown);
     var grid = $('product-grid');
 
-    grid.innerHTML = visible.map(card).join('');
+    var grouped = isGrouped() && all.length > 0;
+    $('category-groups').hidden = !grouped;
+    if (grouped) renderGroups(); else $('category-groups').innerHTML = '';
+
+    grid.innerHTML = grouped ? '' : visible.map(card).join('');
     if (site) RT.bind(site, grid);
     RT.initReveal(grid);
 
     var n = list.length;
-    $('result-count').textContent = all.length === 0
+    $('result-count').textContent = (all.length === 0 || grouped)
       ? ''
       : n + ' product' + (n === 1 ? '' : 's') + ' found';
 
@@ -186,8 +225,8 @@
       $('empty-clear').hidden = all.length === 0;
     }
     empty.hidden = n !== 0;
-    $('load-more-wrap').hidden = n <= visible.length;
-    grid.hidden = n === 0;
+    $('load-more-wrap').hidden = grouped || n <= visible.length;
+    grid.hidden = grouped || n === 0;
 
     $('chip-scroll').querySelectorAll('.chip').forEach(function (a) {
       a.classList.toggle('chip--active', a.getAttribute('data-chip') === state.category);
@@ -233,6 +272,16 @@
       state.category = a.getAttribute('data-chip');
       renderFilterOptions();
       changed();
+    });
+
+    $('category-groups').addEventListener('click', function (e) {
+      var a = e.target.closest('a[data-viewall]');
+      if (!a) return;
+      e.preventDefault();
+      state.category = a.getAttribute('data-viewall');
+      renderFilterOptions();
+      changed();
+      var top = $('chip-bar'); if (top && top.scrollIntoView) top.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
     $('load-more').addEventListener('click', function () { state.shown += PAGE_SIZE; render(); });
