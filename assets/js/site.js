@@ -10,6 +10,9 @@
 (function () {
   'use strict';
 
+  /* File version. Do not edit by hand: run  python3 tools/bump.py  before each push. */
+  var ASSET_V = '1';
+
   document.documentElement.classList.add('js');
 
   /* Fallback details, used only if data/site.json cannot be loaded. */
@@ -391,7 +394,7 @@
   // Scroll animations (progress bar, count-up, parallax, pinned steps)
   (function () {
     var m = document.createElement('script');
-    m.src = '/assets/js/motion.js';
+    m.src = '/assets/js/motion.js?v=' + ASSET_V;
     m.defer = true;
     document.body.appendChild(m);
   })();
@@ -399,7 +402,7 @@
   // Enquiry list (add products, send list on WhatsApp)
   (function () {
     var e = document.createElement('script');
-    e.src = '/assets/js/enquiry.js';
+    e.src = '/assets/js/enquiry.js?v=' + ASSET_V;
     e.defer = true;
     document.body.appendChild(e);
   })();
