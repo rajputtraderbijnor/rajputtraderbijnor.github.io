@@ -194,12 +194,25 @@
           '<a href="/order.html" class="btn btn--gold enq__send"><i class="ri-shopping-bag-3-line" aria-hidden="true"></i> Place Order</a>' +
           '<button type="button" class="enq__clear" data-enq-clear>Clear list</button>' +
         '</footer>' +
-      '</aside>';
+      '</aside>' +
+      '<div class="enq-confirm" data-enq-confirm hidden>' +
+        '<div class="enq-confirm__box" role="alertdialog" aria-modal="true" aria-labelledby="enqConfirmTitle">' +
+          '<i class="ri-delete-bin-line enq-confirm__icon" aria-hidden="true"></i>' +
+          '<h3 id="enqConfirmTitle" class="enq-confirm__title">Clear your list?</h3>' +
+          '<p class="enq-confirm__text">All products will be removed from your enquiry list.</p>' +
+          '<div class="enq-confirm__actions">' +
+            '<button type="button" class="btn btn--outline-dark" data-enq-confirm-no>Keep list</button>' +
+            '<button type="button" class="btn btn--brown" data-enq-confirm-yes>Yes, clear</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
     document.body.appendChild(drawer);
 
     drawer.addEventListener('click', function (e) {
       var t = e.target;
       if (t.closest('[data-enq-close]')) { close(); return; }
+      if (t.closest('[data-enq-confirm-no]') || t.matches('[data-enq-confirm]')) { hideConfirm(); return; }
+      if (t.closest('[data-enq-confirm-yes]')) { hideConfirm(); clear(); return; }
       var dec = t.closest('[data-enq-dec]');
       var inc = t.closest('[data-enq-inc]');
       var rem = t.closest('[data-enq-remove]');
@@ -207,15 +220,22 @@
       else if (inc) { var i = inc.getAttribute('data-enq-inc'); setQty(i, qty(i) + 1); }
       else if (rem) setQty(rem.getAttribute('data-enq-remove'), 0);
       else if (t.closest('[data-enq-clear]')) {
-        if (window.confirm('Remove all products from your list?')) clear();
+        askClear();
       }
     });
     drawer.addEventListener('change', function (e) {
       var inp = e.target.closest('[data-enq-input]');
       if (inp) setQty(inp.getAttribute('data-enq-input'), inp.value);
     });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && isOpen()) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && isOpen()) { var cf = drawer.querySelector('[data-enq-confirm]'); if (!cf.hidden) hideConfirm(); else close(); } });
   }
+
+  function askClear() {
+    var c = drawer.querySelector('[data-enq-confirm]');
+    c.hidden = false;
+    c.querySelector('[data-enq-confirm-no]').focus();
+  }
+  function hideConfirm() { drawer.querySelector('[data-enq-confirm]').hidden = true; }
 
   function isOpen() { return drawer.classList.contains('is-open'); }
 
@@ -232,6 +252,7 @@
   }
 
   function close() {
+    hideConfirm();
     drawer.classList.remove('is-open');
     drawer.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('body--drawer-open');

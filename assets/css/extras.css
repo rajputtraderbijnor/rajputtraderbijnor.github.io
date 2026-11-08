@@ -544,3 +544,13 @@ button.product-card__add-cart{border:0;cursor:pointer;font-family:inherit}
 .navbar__toggle{display:none}
 .navbar__search:hover{color:var(--gold,#d4a537)}
 @media (max-width:860px){.navbar__toggle{display:inline-flex}}
+
+/* ===== Clear-list confirmation (matches site style) ===== */
+.enq-confirm{position:absolute;inset:0;z-index:5;background:rgba(30,18,10,.6);display:flex;align-items:center;justify-content:center;padding:1.25rem}
+.enq-confirm[hidden]{display:none}
+.enq-confirm__box{background:#fffaf2;border-radius:16px;padding:1.5rem 1.25rem 1.25rem;width:100%;max-width:340px;text-align:center;box-shadow:0 18px 40px rgba(0,0,0,.3);border-top:4px solid #d4a537}
+.enq-confirm__icon{font-size:2rem;color:#b8860b}
+.enq-confirm__title{margin:.35rem 0 .3rem;font-size:1.15rem;color:#3b2418}
+.enq-confirm__text{margin:0 0 1.1rem;font-size:.88rem;color:#7a6652}
+.enq-confirm__actions{display:flex;gap:.6rem}
+.enq-confirm__actions .btn{flex:1;justify-content:center;padding:.65rem .5rem;font-size:.85rem}
