@@ -19,6 +19,20 @@ new = int(sys.argv[1]) if len(sys.argv) > 1 and sys.argv[1].isdigit() else int(m
 
 open(SITE_JS, 'w', encoding='utf-8').write(js.replace(m.group(0), "var ASSET_V = '%d';" % new, 1))
 
+# Make sure every page loads the display-settings script (head) and the dark theme stylesheet.
+THEME_TAG = '<script src="/assets/js/theme.js"></script>'
+DARK_TAG = '<link rel="stylesheet" href="/assets/css/dark.css">'
+for path in glob.glob(os.path.join(REPO, '*.html')):
+    text = open(path, encoding='utf-8').read()
+    out = text
+    if '/assets/css/tokens.css' in out:
+        if '/assets/js/theme.js' not in out:
+            out = re.sub(r'(\s*)(<link rel="stylesheet" href="/assets/css/tokens\.css)', lambda m: m.group(1) + THEME_TAG + m.group(1) + m.group(2), out, count=1)
+        if '/assets/css/dark.css' not in out:
+            out = re.sub(r'(<link rel="stylesheet" href="/assets/css/extras\.css[^"]*">)', lambda m: m.group(1) + '\n  ' + DARK_TAG, out, count=1)
+    if out != text:
+        open(path, 'w', encoding='utf-8').write(out)
+
 pat = re.compile(r'((?:src|href)=")(/assets/(?:css|js)/[^"?#]+)(?:\?v=[^"]*)?(")')
 count = 0
 for path in glob.glob(os.path.join(REPO, '*.html')):

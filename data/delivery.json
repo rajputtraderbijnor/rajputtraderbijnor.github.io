@@ -1,4 +1,25 @@
 {
-  "_help": "Towns and areas you deliver to. Add one name per line inside the square brackets, in quotes, with a comma after every name except the last. While the list is empty the website shows a general sentence instead of area chips.",
-  "areas": []
+  "_help": "Towns and areas you deliver to. Use tools/delivery.py to add or remove names.",
+  "areas": [
+    "Bijnor City",
+    "Kiratpur",
+    "Adampur",
+    "Bakshiwala",
+    "Bukhara",
+    "Civil Lines",
+    "Collectorate",
+    "Gadi",
+    "Geeta Nagari",
+    "Gyan Vihar",
+    "Jatan",
+    "Malti Nagar",
+    "Mirdgan",
+    "Nai Basti",
+    "Pedi",
+    "Pragati Vihar",
+    "Rampur Bakli",
+    "Sadar Bazar",
+    "Sadhupura",
+    "Sahitya Vihar"
+  ]
 }

@@ -11,7 +11,7 @@
   'use strict';
 
   /* File version. Do not edit by hand: run  python3 tools/bump.py  before each push. */
-  var ASSET_V = '1';
+  var ASSET_V = '5';
 
   document.documentElement.classList.add('js');
 
@@ -32,22 +32,22 @@
 
   /* Navigation. Home is "/", every other page is a .html file. */
   var NAV_MAIN = [
-    { href: '/', label: 'Home', match: function (p) { return p === '/' || p === '/index.html'; } },
-    { href: '/products.html', label: 'Products', match: starts('/products') },
-    { href: '/brands.html', label: 'Brands', match: starts('/brands') },
-    { href: '/about.html', label: 'About Us', match: starts('/about') },
-    { href: '/contact.html', label: 'Contact', match: starts('/contact') }
+    { href: '/', label: 'Home', icon: 'ri-home-4-line', match: function (p) { return p === '/' || p === '/index.html'; } },
+    { href: '/products.html', label: 'Products', icon: 'ri-store-2-line', match: starts('/products') },
+    { href: '/brands.html', label: 'Brands', icon: 'ri-award-line', match: starts('/brands') },
+    { href: '/about.html', label: 'About Us', icon: 'ri-information-line', match: starts('/about') },
+    { href: '/contact.html', label: 'Contact', icon: 'ri-phone-line', match: starts('/contact') }
   ];
   var NAV_MORE = [
-    { href: '/gallery.html', label: 'Gallery', match: starts('/gallery') },
-    { href: '/events.html', label: 'Bulk Orders', match: starts('/events') },
-    { href: '/delivery.html', label: 'Delivery Network', match: starts('/delivery') },
-    { href: '/faq.html', label: 'FAQ', match: starts('/faq') }
+    { href: '/gallery.html', label: 'Gallery', icon: 'ri-image-2-line', match: starts('/gallery') },
+    { href: '/events.html', label: 'Bulk Orders', icon: 'ri-calendar-event-line', match: starts('/events') },
+    { href: '/delivery.html', label: 'Delivery Network', icon: 'ri-truck-line', match: starts('/delivery') },
+    { href: '/faq.html', label: 'FAQ', icon: 'ri-question-line', match: starts('/faq') }
   ];
   var NAV_LEGAL = [
-    { href: '/privacy.html', label: 'Privacy Policy', match: starts('/privacy') },
-    { href: '/terms.html', label: 'Terms & Conditions', match: starts('/terms') },
-    { href: '/returns.html', label: 'Return & Refund Policy', match: starts('/returns') }
+    { href: '/privacy.html', label: 'Privacy Policy', icon: 'ri-shield-check-line', match: starts('/privacy') },
+    { href: '/terms.html', label: 'Terms & Conditions', icon: 'ri-file-text-line', match: starts('/terms') },
+    { href: '/returns.html', label: 'Return & Refund Policy', icon: 'ri-arrow-go-back-line', match: starts('/returns') }
   ];
 
   function starts(prefix) {
@@ -205,7 +205,7 @@
     var active = item.match(path);
     return '<a href="' + item.href + '" class="navbar__link' + (active ? ' navbar__link--active' : '') +
       (extraClass ? ' ' + extraClass : '') + '"' + (active ? ' aria-current="page"' : '') + '>' +
-      esc(item.label) + '</a>';
+      (item.icon ? '<i class="navbar__ico ' + item.icon + '" aria-hidden="true"></i>' : '') + esc(item.label) + '</a>';
   }
 
   function buildHeader() {
@@ -236,6 +236,7 @@
               mainInMenu +
               '<li class="navbar__dropdown-divider navbar__dropdown-item--primary" role="separator"></li>' +
               more +
+              '<li><a href="#settings" class="navbar__link" data-open-settings><i class="navbar__ico ri-settings-3-line" aria-hidden="true"></i>Settings</a></li>' +
               '<li class="navbar__dropdown-divider" role="separator"></li>' +
               '<li class="navbar__dropdown-label">Legal &amp; Policies</li>' +
               legal +
@@ -244,6 +245,7 @@
         '</ul>' +
         '<div class="navbar__actions">' +
           '<a href="/search.html" class="navbar__search" aria-label="Search the website"><i class="ri-search-line" aria-hidden="true"></i></a>' +
+          '<button type="button" class="navbar__settings" data-open-settings aria-label="Settings"><i class="ri-settings-3-line" aria-hidden="true"></i></button>' +
           '<button type="button" class="navbar__toggle" aria-label="Open menu" aria-expanded="false"><i class="ri-more-2-fill" aria-hidden="true"></i></button>' +
         '</div>' +
       '</nav>';
@@ -397,6 +399,14 @@
     m.src = '/assets/js/motion.js?v=' + ASSET_V;
     m.defer = true;
     document.body.appendChild(m);
+  })();
+
+  // Settings panel (dark mode, Hindi, text size, report a problem)
+  (function () {
+    var e = document.createElement('script');
+    e.src = '/assets/js/settings.js?v=' + ASSET_V;
+    e.defer = true;
+    document.body.appendChild(e);
   })();
 
   // Enquiry list (add products, send list on WhatsApp)
