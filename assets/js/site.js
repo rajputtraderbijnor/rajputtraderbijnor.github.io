@@ -11,7 +11,7 @@
   'use strict';
 
   /* File version. Do not edit by hand: run  python3 tools/bump.py  before each push. */
-  var ASSET_V = '9';
+  var ASSET_V = '10';
 
   document.documentElement.classList.add('js');
 
@@ -425,6 +425,6 @@
     esc: esc, escWithBreaks: escWithBreaks, safeIcon: safeIcon, getData: getData,
     settingsFor: settingsFor, itemsFor: itemsFor, siteReady: siteReady, bind: bind,
     initReveal: initReveal, waUrl: waUrl, telUrl: telUrl, formatPhone: formatPhone,
-    DEFAULT_WA_TEXT: DEFAULT_WA_TEXT
+    DEFAULT_WA_TEXT: DEFAULT_WA_TEXT, directionsUrl: directionsUrl, version: ASSET_V
   };
 })();
