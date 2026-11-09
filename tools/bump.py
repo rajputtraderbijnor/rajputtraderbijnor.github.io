@@ -21,6 +21,7 @@ open(SITE_JS, 'w', encoding='utf-8').write(js.replace(m.group(0), "var ASSET_V =
 
 # Make sure every page loads the display-settings script (head) and the dark theme stylesheet.
 THEME_TAG = '<script src="/assets/js/theme.js"></script>'
+MANIFEST_TAG = '<link rel="manifest" href="/manifest.webmanifest">'
 DARK_TAG = '<link rel="stylesheet" href="/assets/css/dark.css">'
 for path in glob.glob(os.path.join(REPO, '*.html')):
     text = open(path, encoding='utf-8').read()
@@ -28,6 +29,8 @@ for path in glob.glob(os.path.join(REPO, '*.html')):
     if '/assets/css/tokens.css' in out:
         if '/assets/js/theme.js' not in out:
             out = re.sub(r'(\s*)(<link rel="stylesheet" href="/assets/css/tokens\.css)', lambda m: m.group(1) + THEME_TAG + m.group(1) + m.group(2), out, count=1)
+        if 'manifest.webmanifest' not in out:
+            out = re.sub(r'(<meta name="theme-color"[^>]*>)', lambda m: m.group(1) + '\n  ' + MANIFEST_TAG, out, count=1)
         if '/assets/css/dark.css' not in out:
             out = re.sub(r'(<link rel="stylesheet" href="/assets/css/extras\.css[^"]*">)', lambda m: m.group(1) + '\n  ' + DARK_TAG, out, count=1)
     if out != text:
