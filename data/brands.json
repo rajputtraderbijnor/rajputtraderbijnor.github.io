@@ -1,12 +1,88 @@
 [
-  { "id": 101, "name": "Loaf India", "slug": "loaf-india", "logo": "loaf-india.webp", "description": null, "sortOrder": 1 },
-  { "id": 102, "name": "Golden Harvest", "slug": "golden-harvest", "logo": null, "description": null, "sortOrder": 2 },
-  { "id": 103, "name": "Empire Bakery", "slug": "empire-bakery", "logo": null, "description": null, "sortOrder": 3 },
-  { "id": 104, "name": "Umda Bakery", "slug": "umda-bakery", "logo": null, "description": null, "sortOrder": 4 },
-  { "id": 105, "name": "Mayur", "slug": "mayur", "logo": null, "description": "By Parik Food Industries", "sortOrder": 5 },
-  { "id": 106, "name": "SS Bakery", "slug": "ss-bakery", "logo": null, "description": null, "sortOrder": 6 },
-  { "id": 107, "name": "Amrutum", "slug": "amrutum", "logo": null, "description": "By Agri Organic India LLP", "sortOrder": 7 },
-  { "id": 108, "name": "Shafique Bakery", "slug": "shafique-bakery", "logo": null, "description": null, "sortOrder": 8 },
-  { "id": 109, "name": "Cina Bakers", "slug": "cina-bakers", "logo": null, "description": null, "sortOrder": 9 },
-  { "id": 110, "name": "New Golden Bakers", "slug": "new-golden-bakers", "logo": null, "description": null, "sortOrder": 10 }
+  {
+    "id": 101,
+    "name": "Loaf India",
+    "slug": "loaf-india",
+    "logo": "loaf-india.webp",
+    "description": null,
+    "sortOrder": 1
+  },
+  {
+    "id": 102,
+    "name": "Golden Harvest",
+    "slug": "golden-harvest",
+    "logo": null,
+    "description": null,
+    "sortOrder": 2
+  },
+  {
+    "id": 103,
+    "name": "Empire Bakery",
+    "slug": "empire-bakery",
+    "logo": null,
+    "description": null,
+    "sortOrder": 3
+  },
+  {
+    "id": 104,
+    "name": "Umda Bakery",
+    "slug": "umda-bakery",
+    "logo": null,
+    "description": null,
+    "sortOrder": 4
+  },
+  {
+    "id": 105,
+    "name": "Mayur",
+    "slug": "mayur",
+    "logo": null,
+    "description": "By Parik Food Industries",
+    "sortOrder": 5
+  },
+  {
+    "id": 106,
+    "name": "SS Bakery",
+    "slug": "ss-bakery",
+    "logo": null,
+    "description": null,
+    "sortOrder": 6
+  },
+  {
+    "id": 107,
+    "name": "Amrutum",
+    "slug": "amrutum",
+    "logo": null,
+    "description": "By Agri Organic India LLP",
+    "sortOrder": 7
+  },
+  {
+    "id": 108,
+    "name": "Shafique Bakery",
+    "slug": "shafique-bakery",
+    "logo": null,
+    "description": null,
+    "sortOrder": 8
+  },
+  {
+    "id": 109,
+    "name": "Cina Bakers",
+    "slug": "cina-bakers",
+    "logo": null,
+    "description": null,
+    "sortOrder": 9
+  },
+  {
+    "id": 110,
+    "name": "New Golden Bakers",
+    "slug": "new-golden-bakers",
+    "logo": null,
+    "description": null,
+    "sortOrder": 10
+  },
+  {
+    "id": 111,
+    "name": "Sahil Gold Bakery",
+    "slug": "sahil-gold-bakery",
+    "isActive": true
+  }
 ]

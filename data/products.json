@@ -153,5 +153,100 @@
     "isSeasonal": false,
     "sortOrder": 8,
     "status": "published"
+  },
+  {
+    "id": 9,
+    "name": "Classic Brown Bread",
+    "slug": "golden-harvest-classic-brown-bread",
+    "categoryId": 5,
+    "brandId": 102,
+    "packagingInfo": "400 g",
+    "description": "Golden Harvest Classic Brown Bread is a soft, delicious brown bread with a rich wheat flavour, perfect for everyday breakfast, sandwiches, toast and snacks. A tasty choice for the whole family.",
+    "coverImage": "golden-harvest-classic-brown-bread.webp",
+    "images": [
+      "golden-harvest-classic-brown-bread.webp",
+      "golden-harvest-classic-brown-bread-2.webp",
+      "golden-harvest-classic-brown-bread-3.webp"
+    ],
+    "price": 50,
+    "isSeasonal": false,
+    "sortOrder": 9,
+    "status": "published"
+  },
+  {
+    "id": 10,
+    "name": "Super Sandwich Bread",
+    "slug": "golden-harvest-super-sandwich-bread",
+    "categoryId": 7,
+    "brandId": 102,
+    "packagingInfo": "450 g",
+    "description": "Golden Harvest Super Sandwich Bread is soft, fresh and delicious bread, perfect for preparing tasty sandwiches, toast and everyday breakfast favourites. A convenient choice for quick snacks and family meals.",
+    "coverImage": "golden-harvest-super-sandwich-bread.webp",
+    "images": [
+      "golden-harvest-super-sandwich-bread.webp",
+      "golden-harvest-super-sandwich-bread-2.webp",
+      "golden-harvest-super-sandwich-bread-3.webp"
+    ],
+    "price": 40,
+    "isSeasonal": false,
+    "sortOrder": 10,
+    "status": "published"
+  },
+  {
+    "id": 11,
+    "name": "Soft White Bread",
+    "slug": "golden-harvest-soft-white-bread",
+    "categoryId": 1,
+    "brandId": 102,
+    "packagingInfo": "200g + 25g = 225g",
+    "description": "Golden Harvest Soft White Bread is a soft, fluffy and fresh bread with a light texture, perfect for preparing sandwiches, toast, breakfast and everyday snacks. A delicious and versatile choice for the whole family.",
+    "coverImage": "golden-harvest-soft-white-bread.webp",
+    "images": [
+      "golden-harvest-soft-white-bread.webp",
+      "golden-harvest-soft-white-bread-2.webp",
+      "golden-harvest-soft-white-bread-3.webp"
+    ],
+    "price": 20,
+    "isSeasonal": false,
+    "sortOrder": 11,
+    "status": "published"
+  },
+  {
+    "id": 12,
+    "name": "Burger Bun",
+    "slug": "golden-harvest-burger-bun",
+    "categoryId": 3,
+    "brandId": 102,
+    "packagingInfo": "200gm",
+    "description": "Burger Buns are soft, fluffy and lightly golden buns with a tender texture, perfect for preparing delicious burgers and other quick snacks. A great choice for homemade meals and everyday treats.",
+    "coverImage": "golden-harvest-burger-bun.webp",
+    "images": [
+      "golden-harvest-burger-bun.webp",
+      "golden-harvest-burger-bun-2.webp",
+      "golden-harvest-burger-bun-3.webp"
+    ],
+    "price": 40,
+    "isSeasonal": false,
+    "sortOrder": 12,
+    "status": "published"
+  },
+  {
+    "id": 13,
+    "name": "Special Fan",
+    "slug": "sahil-gold-bakery-special-fan",
+    "categoryId": 12,
+    "brandId": 111,
+    "packagingInfo": "10 pcs",
+    "description": "Sahil Gold Bakery Special Fan is a crispy, flaky and delicious bakery snack with a light, crunchy texture. Perfect for enjoying with tea or coffee, making it a delightful treat for any time of the day.",
+    "coverImage": "sahil-gold-bakery-special-fan.webp",
+    "images": [
+      "sahil-gold-bakery-special-fan.webp",
+      "sahil-gold-bakery-special-fan-2.webp",
+      "sahil-gold-bakery-special-fan-3.webp"
+    ],
+    "price": 40,
+    "isSeasonal": false,
+    "sortOrder": 13,
+    "status": "published"
   }
 ]
