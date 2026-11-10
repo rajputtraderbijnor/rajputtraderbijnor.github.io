@@ -667,3 +667,6 @@ html[data-contrast="high"][data-theme="light"] .set-group h3{color:#3b2418}
 html[data-contrast="high"] :focus-visible{outline:3px solid #000 !important;outline-offset:2px}
 html[data-contrast="high"][data-theme="light"] .set-seg__btn,html[data-contrast="high"][data-theme="light"] .set-contact__btn,html[data-contrast="high"][data-theme="light"] .product-card,html[data-contrast="high"][data-theme="light"] input,html[data-contrast="high"][data-theme="light"] textarea,html[data-contrast="high"][data-theme="light"] select{border-color:#3f2505 !important}
 html[data-contrast="high"] .btn--whatsapp{background:#065046 !important;color:#fff !important}
+
+/* Product page: share button has a gold outline all the time (not only after a tap) */
+.product-detail__share{ border-color: var(--gold); }

@@ -355,3 +355,4 @@ html[data-contrast="high"][data-theme="dark"] body,html[data-contrast="high"][da
 html[data-contrast="high"][data-theme="dark"]{--d-text:#fff;--d-muted:#f5ead2}
 html[data-contrast="high"][data-theme="dark"] a:not(.btn){color:#ffc457}
 html[data-contrast="high"][data-theme="dark"] :focus-visible{outline-color:#fff !important}
+html[data-theme="dark"] .product-detail__share{ border-color: var(--light-gold); }
