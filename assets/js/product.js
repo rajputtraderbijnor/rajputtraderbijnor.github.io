@@ -154,7 +154,7 @@
     var current = 0;
 
     var counter = document.querySelector('[data-gallery-counter]');
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var reduce = document.documentElement.getAttribute('data-motion') === 'reduced' || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
 
     // Show photo number i, sliding in from the side it comes from (stops at first / last)
     function show(i) {
@@ -210,6 +210,13 @@
       if (e.key === 'ArrowRight') show(current + 1);
       else if (e.key === 'ArrowLeft') show(current - 1);
     });
+    // Tap-to-zoom viewer for the product photos (assets/js/zoom.js)
+    if (window.RT && RT.zoomInit) RT.zoomInit();
+    else {
+      var z = document.createElement('script');
+      z.src = '/assets/js/zoom.js?v=' + ((window.RT && RT.version) || '1');
+      document.body.appendChild(z);
+    }
     $('pd-share').addEventListener('click', function () {
       var url = location.href, note = $('pd-share-note');
       if (navigator.share) {

@@ -11,7 +11,7 @@
   'use strict';
 
   /* File version. Do not edit by hand: run  python3 tools/bump.py  before each push. */
-  var ASSET_V = '12';
+  var ASSET_V = '13';
 
   document.documentElement.classList.add('js');
 
