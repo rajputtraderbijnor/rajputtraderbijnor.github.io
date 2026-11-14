@@ -692,3 +692,8 @@ html[data-contrast="high"] .btn--whatsapp{background:#065046 !important;color:#f
 .pz__hint.is-off{ opacity: 0; }
 @media (max-width: 480px){ .pz__nav{ display: none; } }
 html[data-motion="reduced"] .pz__hint{ transition: none; }
+
+/* Inline zoom on the product photo: hide arrows and the hint while zoomed in */
+.product-gallery__main.is-zoomed{ cursor: move; }
+.product-gallery__main.is-zoomed .product-gallery__arrow,
+.product-gallery__main.is-zoomed .product-gallery__zoom-hint{ display: none; }

@@ -193,6 +193,90 @@
     if (pushed) { pushed = false; try { history.back(); } catch (e) { /* ignore */ } }
   }
 
+  /* ---------- zoom directly on the product page photo ---------- */
+  // Pinch / double-tap to zoom in place, drag to move around when zoomed.
+  // A single tap (when not zoomed) opens the full-screen viewer above.
+  function initInline(main) {
+    var im = main.querySelector('.product-gallery__main-image');
+    if (!im) return;
+    var is = 1, itx = 0, ity = 0, ptr = {}, pin = null, dr = null, tap = { t: 0, x: 0, y: 0 }, timer = 0;
+    main.style.touchAction = 'pan-y';          // page still scrolls up/down; pinch is ours
+
+    function put(animate) {
+      im.style.transition = (animate && !reduce) ? 'transform .2s ease' : 'none';
+      im.style.transform = is > 1.01 ? 'translate(' + itx + 'px,' + ity + 'px) scale(' + is + ')' : '';
+      main.classList.toggle('is-zoomed', is > 1.01);
+      main.style.touchAction = is > 1.01 ? 'none' : 'pan-y';
+    }
+    function fit() {
+      var mx = (is - 1) * main.clientWidth / 2, my = (is - 1) * main.clientHeight / 2;
+      itx = Math.max(-mx, Math.min(mx, itx));
+      ity = Math.max(-my, Math.min(my, ity));
+      if (is <= 1.01) { itx = 0; ity = 0; }
+    }
+    function at(ns, cx, cy, animate) {
+      ns = Math.max(1, Math.min(MAX, ns));
+      var r = main.getBoundingClientRect();
+      var px = cx - (r.left + r.width / 2), py = cy - (r.top + r.height / 2);
+      itx = px - (px - itx) * (ns / is);
+      ity = py - (py - ity) * (ns / is);
+      is = ns; fit(); put(animate);
+    }
+    function back() { is = 1; itx = 0; ity = 0; put(false); }
+
+    // Stop the page's swipe-to-change-photo while zoomed, so moving the photo does not change it
+    ['touchstart', 'touchend'].forEach(function (n) {
+      main.addEventListener(n, function (e) { if (is > 1.01 || (e.touches && e.touches.length > 1)) e.stopImmediatePropagation(); }, true);
+    });
+    new MutationObserver(back).observe(im, { attributes: true, attributeFilter: ['src'] });
+
+    main.addEventListener('pointerdown', function (e) {
+      if (e.target.closest('.product-gallery__arrow')) return;
+      ptr[e.pointerId] = { x: e.clientX, y: e.clientY };
+      var ids = Object.keys(ptr);
+      if (ids.length === 2) {
+        clearTimeout(timer);
+        pin = { d: dist(ptr[ids[0]], ptr[ids[1]]), s: is };
+        dr = null;
+        try { main.setPointerCapture(e.pointerId); } catch (x) { /* ignore */ }
+      } else {
+        dr = { x: e.clientX, y: e.clientY, tx: itx, ty: ity, moved: false, t: Date.now() };
+        if (is > 1.01) { try { main.setPointerCapture(e.pointerId); } catch (x) { /* ignore */ } }
+      }
+    });
+    main.addEventListener('pointermove', function (e) {
+      if (!ptr[e.pointerId]) return;
+      ptr[e.pointerId] = { x: e.clientX, y: e.clientY };
+      var ids = Object.keys(ptr);
+      if (ids.length === 2 && pin) {
+        var a = ptr[ids[0]], b = ptr[ids[1]];
+        at(pin.s * dist(a, b) / pin.d, (a.x + b.x) / 2, (a.y + b.y) / 2);
+      } else if (dr && ids.length === 1) {
+        var dx = e.clientX - dr.x, dy = e.clientY - dr.y;
+        if (Math.abs(dx) + Math.abs(dy) > 8) dr.moved = true;
+        if (is > 1.01) { itx = dr.tx + dx; ity = dr.ty + dy; fit(); put(false); }
+      }
+    });
+    function end(e) {
+      var had = ptr[e.pointerId];
+      delete ptr[e.pointerId];
+      if (pin) { if (Object.keys(ptr).length < 2) pin = null; if (is < 1.05) back(); return; }
+      if (!dr || !had) return;
+      var d = dr; dr = null;
+      if (e.type === 'pointercancel' || d.moved || Date.now() - d.t > 450) return;
+      var now = Date.now();
+      if (now - tap.t < 320 && Math.hypot(e.clientX - tap.x, e.clientY - tap.y) < 40) {     // double-tap
+        clearTimeout(timer); tap.t = 0;
+        if (is > 1.01) { is = 1; itx = 0; ity = 0; put(true); } else at(DOUBLE, e.clientX, e.clientY, true);
+        return;
+      }
+      tap = { t: now, x: e.clientX, y: e.clientY };
+      if (is <= 1.01) { clearTimeout(timer); timer = setTimeout(openAt, 300); }              // single tap: full screen
+    }
+    main.addEventListener('pointerup', end);
+    main.addEventListener('pointercancel', end);
+  }
+
   /* ---------- hook into the product page ---------- */
   function init() {
     var main = document.querySelector('.product-gallery__main');
@@ -201,12 +285,9 @@
     main.classList.add('product-gallery__main--zoom');
     var badge = document.createElement('span');
     badge.className = 'product-gallery__zoom-hint';
-    badge.innerHTML = '<i class="ri-zoom-in-line" aria-hidden="true"></i> Tap to zoom';
+    badge.innerHTML = '<i class="ri-zoom-in-line" aria-hidden="true"></i> Pinch to zoom';
     main.appendChild(badge);
-    main.addEventListener('click', function (e) {
-      if (e.target.closest('.product-gallery__arrow')) return;
-      openAt();
-    });
+    initInline(main);
   }
   init();
   window.RT = window.RT || {};
