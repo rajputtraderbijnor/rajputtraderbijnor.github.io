@@ -248,5 +248,26 @@
     "isSeasonal": false,
     "sortOrder": 13,
     "status": "published"
+  },
+  {
+    "id": 14,
+    "name": "Minal Fruit Cake",
+    "slug": "cina-bakers-minal-fruit-cake",
+    "categoryId": 10,
+    "brandId": 109,
+    "packagingInfo": "30pcs",
+    "description": "Minal Fruit Cake (Egg) is a soft and delicious fruit cake, individually packed for freshness and convenience. Supplied in a bulk carton of 30 pieces, making it ideal for retail shops, bakeries, and wholesale distribution.",
+    "coverImage": "cina-bakers-minal-fruit-cake.webp",
+    "images": [
+      "cina-bakers-minal-fruit-cake.webp",
+      "cina-bakers-minal-fruit-cake-2.webp",
+      "cina-bakers-minal-fruit-cake-3.webp",
+      "cina-bakers-minal-fruit-cake-4.webp",
+      "cina-bakers-minal-fruit-cake-5.webp"
+    ],
+    "price": 300,
+    "isSeasonal": false,
+    "sortOrder": 14,
+    "status": "published"
   }
 ]
